@@ -3,334 +3,247 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thank You - Page & Path Publishing Group</title>
+<title>Message received — Neural Nexus Press</title>
+<meta name="description" content="Thanks for getting in touch with Neural Nexus Press.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 <style>
-  :root {
-    --cream: #fffdf8;
-    --charcoal: #2a2a26;
-    --sage: #5ba398;
-    --sage-light: #7db8aa;
-    --gray-dark: #4a4a44;
-    --gray-light: #e8e4d8;
-    --accent: #d4b86a;
+  body { min-height: 100vh; display: flex; flex-direction: column; }
+  .ty-main {
+    flex: 1;
+    padding: 80px 24px;
+    display: grid; place-items: center;
+    background:
+      radial-gradient(circle at 14% 18%, rgba(74, 123, 168, 0.18) 0%, transparent 38%),
+      radial-gradient(circle at 86% 24%, rgba(245, 185, 66, 0.18) 0%, transparent 42%),
+      radial-gradient(circle at 60% 92%, rgba(44, 93, 146, 0.15) 0%, transparent 48%),
+      var(--bg);
+    position: relative; overflow: hidden;
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background: var(--cream);
-    color: var(--charcoal);
-    line-height: 1.65;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  h1, h2, h3 {
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    line-height: 1.2;
-    margin: 0;
-  }
-
-  a { color: inherit; text-decoration: none; }
-  img, svg { display: block; }
-
-  /* ===== HEADER ===== */
-  header {
-    background: var(--charcoal);
-    border-bottom: 1px solid var(--sage);
-    padding: 1.25rem 2rem;
-  }
-
-  .nav-row {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--accent);
-    font-family: 'Lora', serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
-
-  .logo-mark {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--sage);
-    color: var(--cream);
-    border-radius: 2px;
-    font-size: 1.2rem;
-    font-weight: 700;
-  }
-
-  /* ===== MAIN ===== */
-  .thank-you-container {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 6rem 2rem;
+  .ty-panel {
+    max-width: 720px; width: 100%;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 64px 48px;
     text-align: center;
+    position: relative; z-index: 2;
   }
-
-  .checkmark {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 2rem;
-    background: var(--sage);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 3rem;
-  }
-
-  h1 {
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    margin-bottom: 1rem;
-    color: var(--sage);
-  }
-
-  .subtitle {
-    font-size: 1.1rem;
-    color: var(--gray-dark);
-    margin-bottom: 2rem;
-    line-height: 1.7;
-  }
-
-  .details {
-    background: white;
-    border: 1px solid var(--gray-light);
-    border-radius: 4px;
-    padding: 2rem;
-    margin: 2rem 0;
-    text-align: left;
-  }
-
-  .detail-item {
-    margin-bottom: 1.25rem;
-    line-height: 1.8;
-  }
-
-  .detail-item:last-child {
-    margin-bottom: 0;
-  }
-
-  .detail-label {
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--sage);
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-  }
-
-  .detail-text {
-    color: var(--gray-dark);
-  }
-
-  .next-steps {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background: var(--cream);
-    border-left: 3px solid var(--sage);
-    border-radius: 2px;
-    text-align: left;
-  }
-
-  .next-steps h3 {
-    font-size: 1.05rem;
-    margin-bottom: 1rem;
-    color: var(--charcoal);
-  }
-
-  .next-steps ol {
-    list-style-position: inside;
-    color: var(--gray-dark);
-    line-height: 1.9;
-  }
-
-  .next-steps li {
-    margin-bottom: 0.75rem;
-  }
-
-  .btn {
+  .ty-stamp {
     display: inline-block;
-    padding: 0.85rem 2rem;
-    border-radius: 3px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
+    background: var(--navy-50);
+    color: var(--navy-700);
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    transition: all 0.25s;
-    cursor: pointer;
-    border: 2px solid transparent;
-    margin-top: 1.5rem;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--navy-100);
+    margin-bottom: 28px;
+  }
+  .ty-mark {
+    width: 96px; height: 96px;
+    margin: 0 auto 24px;
+    display: block;
+  }
+  .ty-panel h1 {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    margin-bottom: 18px;
+    color: var(--navy-900);
+  }
+  .ty-panel h1 .accent { color: var(--navy-600); }
+  .ty-panel p {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin: 0 auto 36px;
+  }
+  .ty-actions {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
   }
 
-  .btn-primary {
-    background: var(--sage);
-    color: white;
-    border-color: var(--sage);
-  }
+  /* ===== Floating accents ===== */
+  .ty-orbit { position: absolute; pointer-events: none; z-index: 1; opacity: 0.45; }
+  .ty-o1 { left: 5%;  top: 12%; width: 80px; }
+  .ty-o2 { right: 7%; top: 22%; width: 64px; }
+  .ty-o3 { left: 9%;  bottom: 16%; width: 70px; }
+  .ty-o4 { right: 9%; bottom: 12%; width: 88px; }
 
-  .btn-primary:hover {
-    background: var(--sage-light);
-    border-color: var(--sage-light);
-  }
-
-  /* ===== FOOTER ===== */
-  footer {
-    background: var(--charcoal);
-    color: var(--sage-light);
-    padding: 3rem 2rem 2rem;
-    border-top: 1px solid var(--sage);
-    text-align: center;
-    font-size: 0.85rem;
-    margin-top: 4rem;
-  }
-
-  .footer-brand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--accent);
-    font-family: 'Lora', serif;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
-
-  .footer-brand .mark {
-    width: 28px;
-    height: 28px;
-    background: var(--sage);
-    color: var(--cream);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2px;
-    font-weight: 700;
-    font-size: 1rem;
-  }
-
-  .footer-links {
-    margin: 1.5rem 0;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .footer-links a {
-    color: var(--sage-light);
-    transition: color 0.25s;
-  }
-
-  .footer-links a:hover {
-    color: var(--accent);
-  }
-
-  .footer-copy {
-    color: rgba(155, 179, 168, 0.65);
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(107, 142, 127, 0.2);
-  }
-
-  @media (max-width: 768px) {
-    .thank-you-container { padding: 4rem 1.5rem; }
-    header { padding: 1rem 1.5rem; }
+  @media (max-width: 720px) {
+    .ty-panel { padding: 44px 28px; }
+    .ty-mark { width: 76px; height: 76px; }
+    .ty-main { padding: 56px 18px; }
+    .ty-orbit { display: none; }
   }
 </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
-<header>
+<!-- ============================== NAV ============================== -->
+<header class="nav">
   <div class="nav-row">
-    <a href="index.html" class="logo">
-      <div class="logo-mark">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
-          <defs>
-            <linearGradient id="pathGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#9eb3a8;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#6b8e7f;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <path d="M 20 15 L 50 15 L 50 85 L 20 85 Q 18 50 20 15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M 50 15 L 80 15 L 80 85 L 50 85 Q 52 50 50 15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M 35 35 Q 50 45 65 38 Q 70 35 75 42" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-        </svg>
-      </div>
-      <span>Page & Path</span>
+    <a href="index.html" class="brand" aria-label="Neural Nexus Press home">
+      <svg class="brand-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path fill="#1a3656" d="M52 8c-3 0-6 .8-8.5 2.3C40 8.6 36 8 32 9.5c-7 2.7-11 9.7-10 17 -5 1.5-9 6-9.5 11.5 -.5 6 3 11.5 8.5 13.7 -2.5 4-2.5 9 .5 13 1.5 2 3.5 3.5 6 4.2 -.5 5.5 2.5 11 8 13.5 4 1.7 8.5 1.2 12-1 2.5 3 6.5 4.7 10.5 4.2 5.5-.7 10-4.7 11.5-10 4 .8 8.3-.3 11.5-3.5 4-4 5-10 2.5-15 4.5-3 7-8.3 6-13.7 -1-5.5-5-9.7-10-11 1-7-2.5-13.7-9-16.5C66 8 59 7 52 8z"/>
+        <g fill="#ffffff">
+          <circle cx="35" cy="28" r="3.2"/><circle cx="55" cy="22" r="3.2"/><circle cx="72" cy="32" r="3.2"/>
+          <circle cx="50" cy="42" r="3.2"/><circle cx="30" cy="52" r="3.2"/><circle cx="68" cy="55" r="3.2"/>
+          <circle cx="45" cy="65" r="3.2"/><circle cx="60" cy="75" r="3.2"/>
+        </g>
+        <g stroke="#ffffff" stroke-width="1.6" fill="none" stroke-linecap="round">
+          <line x1="35" y1="28" x2="55" y2="22"/><line x1="55" y1="22" x2="72" y2="32"/>
+          <line x1="35" y1="28" x2="50" y2="42"/><line x1="55" y1="22" x2="50" y2="42"/>
+          <line x1="72" y1="32" x2="50" y2="42"/><line x1="50" y1="42" x2="30" y2="52"/>
+          <line x1="50" y1="42" x2="68" y2="55"/><line x1="30" y1="52" x2="45" y2="65"/>
+          <line x1="68" y1="55" x2="45" y2="65"/><line x1="45" y1="65" x2="60" y2="75"/>
+          <line x1="68" y1="55" x2="60" y2="75"/>
+        </g>
+      </svg>
+      <span class="brand-name">Neural Nexus<span class="sub">Press</span></span>
     </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="books.html">Books</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="books.html" class="nav-cta">Browse Catalog</a>
+    </nav>
+    <button class="menu-btn" aria-label="Toggle menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
   </div>
 </header>
 
-<!-- ===== MAIN ===== -->
-<div class="thank-you-container">
-  <div class="checkmark">✓</div>
+<!-- ============================== THANK YOU PANEL ============================== -->
+<main class="ty-main">
 
-  <h1>Thank You!</h1>
-  <p class="subtitle">We've received your message and appreciate you reaching out to Page & Path Publishing Group.</p>
+  <!-- Floating neural-network accents -->
+  <svg class="ty-orbit ty-o1" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="4" fill="#1a3656"/>
+    <circle cx="48" cy="20" r="4" fill="#1a3656"/>
+    <circle cx="30" cy="48" r="4" fill="#f5b942"/>
+    <line x1="12" y1="12" x2="48" y2="20" stroke="#1a3656" stroke-width="1.5"/>
+    <line x1="48" y1="20" x2="30" y2="48" stroke="#1a3656" stroke-width="1.5"/>
+    <line x1="12" y1="12" x2="30" y2="48" stroke="#1a3656" stroke-width="1.5"/>
+  </svg>
+  <svg class="ty-orbit ty-o2" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="14" cy="46" r="4" fill="#2c5d92"/>
+    <circle cx="44" cy="14" r="4" fill="#2c5d92"/>
+    <circle cx="40" cy="46" r="4" fill="#f5b942"/>
+    <line x1="14" y1="46" x2="44" y2="14" stroke="#2c5d92" stroke-width="1.5"/>
+    <line x1="44" y1="14" x2="40" y2="46" stroke="#2c5d92" stroke-width="1.5"/>
+  </svg>
+  <svg class="ty-orbit ty-o3" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="14" cy="14" r="4" fill="#4a7ba8"/>
+    <circle cx="46" cy="30" r="4" fill="#1a3656"/>
+    <circle cx="20" cy="48" r="4" fill="#4a7ba8"/>
+    <line x1="14" y1="14" x2="46" y2="30" stroke="#4a7ba8" stroke-width="1.5"/>
+    <line x1="46" y1="30" x2="20" y2="48" stroke="#4a7ba8" stroke-width="1.5"/>
+  </svg>
+  <svg class="ty-orbit ty-o4" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="14" cy="20" r="4" fill="#1a3656"/>
+    <circle cx="46" cy="14" r="4" fill="#f5b942"/>
+    <circle cx="30" cy="46" r="4" fill="#1a3656"/>
+    <line x1="14" y1="20" x2="46" y2="14" stroke="#1a3656" stroke-width="1.5"/>
+    <line x1="46" y1="14" x2="30" y2="46" stroke="#1a3656" stroke-width="1.5"/>
+    <line x1="14" y1="20" x2="30" y2="46" stroke="#1a3656" stroke-width="1.5"/>
+  </svg>
 
-  <div class="details">
-    <div class="detail-item">
-      <div class="detail-label">What Happens Next</div>
-      <div class="detail-text">We'll review your message and get back to you within 2-3 business days. If your inquiry is specific to one of our imprints, we may forward it directly to them.</div>
+  <section class="ty-panel">
+    <span class="ty-stamp">Message Received</span>
+
+    <svg class="ty-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path fill="#1a3656" d="M52 8c-3 0-6 .8-8.5 2.3C40 8.6 36 8 32 9.5c-7 2.7-11 9.7-10 17 -5 1.5-9 6-9.5 11.5 -.5 6 3 11.5 8.5 13.7 -2.5 4-2.5 9 .5 13 1.5 2 3.5 3.5 6 4.2 -.5 5.5 2.5 11 8 13.5 4 1.7 8.5 1.2 12-1 2.5 3 6.5 4.7 10.5 4.2 5.5-.7 10-4.7 11.5-10 4 .8 8.3-.3 11.5-3.5 4-4 5-10 2.5-15 4.5-3 7-8.3 6-13.7 -1-5.5-5-9.7-10-11 1-7-2.5-13.7-9-16.5C66 8 59 7 52 8z"/>
+      <g fill="#ffffff">
+        <circle cx="35" cy="28" r="3.2"/><circle cx="55" cy="22" r="3.2"/><circle cx="72" cy="32" r="3.2"/>
+        <circle cx="50" cy="42" r="3.2"/><circle cx="30" cy="52" r="3.2"/><circle cx="68" cy="55" r="3.2"/>
+        <circle cx="45" cy="65" r="3.2"/><circle cx="60" cy="75" r="3.2"/>
+      </g>
+      <g stroke="#ffffff" stroke-width="1.6" fill="none" stroke-linecap="round">
+        <line x1="35" y1="28" x2="55" y2="22"/><line x1="55" y1="22" x2="72" y2="32"/>
+        <line x1="35" y1="28" x2="50" y2="42"/><line x1="55" y1="22" x2="50" y2="42"/>
+        <line x1="72" y1="32" x2="50" y2="42"/><line x1="50" y1="42" x2="30" y2="52"/>
+        <line x1="50" y1="42" x2="68" y2="55"/><line x1="30" y1="52" x2="45" y2="65"/>
+        <line x1="68" y1="55" x2="45" y2="65"/><line x1="45" y1="65" x2="60" y2="75"/>
+        <line x1="68" y1="55" x2="60" y2="75"/>
+      </g>
+    </svg>
+
+    <h1>Thanks for <span class="accent">writing.</span></h1>
+    <p>Your note is in. We aim to respond within two business days. While you wait, take a look at the catalog or read more about how we build our books.</p>
+
+    <div class="ty-actions">
+      <a href="books.html" class="btn btn-primary">
+        Browse the catalog
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="index.html" class="btn btn-secondary">Back to home</a>
     </div>
-  </div>
+  </section>
 
-  <div class="next-steps">
-    <h3>In the Meantime</h3>
-    <ol>
-      <li>Explore our imprints - each has its own unique catalog and approach</li>
-      <li>Visit the imprint websites for the latest releases and collections</li>
-      <li>Follow us on social media for updates and new announcements</li>
-    </ol>
-  </div>
+</main>
 
-  <div style="color: var(--gray-dark); margin: 1.5rem 0; line-height: 1.8;">
-    <p>Have questions about a specific imprint? Visit their site directly:</p>
-    <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.9rem;">
-      <a href="https://neuralnexuspress.com" target="_blank" style="color: var(--sage); font-weight: 600;">Neural Nexus Press</a>
-      <a href="https://dropthorn.com" target="_blank" style="color: var(--sage); font-weight: 600;">Dropthorn Press</a>
-      <a href="https://brighthavenpublishing.xyz" target="_blank" style="color: var(--sage); font-weight: 600;">Bright Haven Publishing</a>
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="color:#fff;">
+          <svg class="brand-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="#ffffff" opacity="0.12" d="M52 8c-3 0-6 .8-8.5 2.3C40 8.6 36 8 32 9.5c-7 2.7-11 9.7-10 17 -5 1.5-9 6-9.5 11.5 -.5 6 3 11.5 8.5 13.7 -2.5 4-2.5 9 .5 13 1.5 2 3.5 3.5 6 4.2 -.5 5.5 2.5 11 8 13.5 4 1.7 8.5 1.2 12-1 2.5 3 6.5 4.7 10.5 4.2 5.5-.7 10-4.7 11.5-10 4 .8 8.3-.3 11.5-3.5 4-4 5-10 2.5-15 4.5-3 7-8.3 6-13.7 -1-5.5-5-9.7-10-11 1-7-2.5-13.7-9-16.5C66 8 59 7 52 8z"/>
+            <g fill="#ffffff">
+              <circle cx="35" cy="28" r="3.2"/><circle cx="55" cy="22" r="3.2"/><circle cx="72" cy="32" r="3.2"/>
+              <circle cx="50" cy="42" r="3.2"/><circle cx="30" cy="52" r="3.2"/><circle cx="68" cy="55" r="3.2"/>
+              <circle cx="45" cy="65" r="3.2"/><circle cx="60" cy="75" r="3.2"/>
+            </g>
+            <g stroke="#ffffff" stroke-width="1.6" fill="none" stroke-linecap="round">
+              <line x1="35" y1="28" x2="55" y2="22"/><line x1="55" y1="22" x2="72" y2="32"/>
+              <line x1="35" y1="28" x2="50" y2="42"/><line x1="55" y1="22" x2="50" y2="42"/>
+              <line x1="72" y1="32" x2="50" y2="42"/><line x1="50" y1="42" x2="30" y2="52"/>
+              <line x1="50" y1="42" x2="68" y2="55"/><line x1="30" y1="52" x2="45" y2="65"/>
+              <line x1="68" y1="55" x2="45" y2="65"/><line x1="45" y1="65" x2="60" y2="75"/>
+              <line x1="68" y1="55" x2="60" y2="75"/>
+            </g>
+          </svg>
+          <span class="brand-name" style="color:#fff;">Neural Nexus<span class="sub" style="color:#f5b942;">Press</span></span>
+        </a>
+        <p style="margin-top:18px;">Scientifically designed puzzles and brain-training activities for seniors, young adults, and teens.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="books.html">All Books</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="books.html#puzzles">Puzzles</a></li>
+          <li><a href="books.html#prompted">Prompted Journals</a></li>
+          <li><a href="books.html#journals">Movie Journals</a></li>
+          <li><a href="books.html#creative">Creative Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Get in touch</a></li>
+          <li><a href="https://www.amazon.com" target="_blank" rel="noopener">Find us on Amazon</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-
-  <a href="index.html" class="btn btn-primary">Back to Page & Path</a>
-</div>
-
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="footer-brand">
-    <div class="mark">§</div>
-    <span>Page & Path Publishing Group</span>
-  </div>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="index.html#about">About</a>
-    <a href="index.html#imprints">Imprints</a>
-    <a href="index.html#contact">Contact</a>
-  </div>
-  <div class="footer-copy">
-    &copy; 2026 Page & Path Publishing Group. All rights reserved.
+    <div class="footer-bottom">
+      <span>&copy; 2026 Neural Nexus Press. All rights reserved.</span>
+      <span>Backed by cutting-edge neuroscience.</span>
+    </div>
   </div>
 </footer>
 
