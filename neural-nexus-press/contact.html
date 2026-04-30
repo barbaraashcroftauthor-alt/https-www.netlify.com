@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Neural Nexus Press</title>
+<meta name="description" content="Get in touch with Neural Nexus Press about books, bulk orders, partnerships, or media inquiries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav">
+  <div class="nav-row">
+    <a href="index.html" class="brand" aria-label="Neural Nexus Press home">
+      <svg class="brand-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path fill="#1a3656" d="M52 8c-3 0-6 .8-8.5 2.3C40 8.6 36 8 32 9.5c-7 2.7-11 9.7-10 17 -5 1.5-9 6-9.5 11.5 -.5 6 3 11.5 8.5 13.7 -2.5 4-2.5 9 .5 13 1.5 2 3.5 3.5 6 4.2 -.5 5.5 2.5 11 8 13.5 4 1.7 8.5 1.2 12-1 2.5 3 6.5 4.7 10.5 4.2 5.5-.7 10-4.7 11.5-10 4 .8 8.3-.3 11.5-3.5 4-4 5-10 2.5-15 4.5-3 7-8.3 6-13.7 -1-5.5-5-9.7-10-11 1-7-2.5-13.7-9-16.5C66 8 59 7 52 8z"/>
+        <g fill="#ffffff">
+          <circle cx="35" cy="28" r="3.2"/><circle cx="55" cy="22" r="3.2"/><circle cx="72" cy="32" r="3.2"/>
+          <circle cx="50" cy="42" r="3.2"/><circle cx="30" cy="52" r="3.2"/><circle cx="68" cy="55" r="3.2"/>
+          <circle cx="45" cy="65" r="3.2"/><circle cx="60" cy="75" r="3.2"/>
+        </g>
+        <g stroke="#ffffff" stroke-width="1.6" fill="none" stroke-linecap="round">
+          <line x1="35" y1="28" x2="55" y2="22"/><line x1="55" y1="22" x2="72" y2="32"/>
+          <line x1="35" y1="28" x2="50" y2="42"/><line x1="55" y1="22" x2="50" y2="42"/>
+          <line x1="72" y1="32" x2="50" y2="42"/><line x1="50" y1="42" x2="30" y2="52"/>
+          <line x1="50" y1="42" x2="68" y2="55"/><line x1="30" y1="52" x2="45" y2="65"/>
+          <line x1="68" y1="55" x2="45" y2="65"/><line x1="45" y1="65" x2="60" y2="75"/>
+          <line x1="68" y1="55" x2="60" y2="75"/>
+        </g>
+      </svg>
+      <span class="brand-name">Neural Nexus<span class="sub">Press</span></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="books.html">Books</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="books.html" class="nav-cta">Browse Catalog</a>
+    </nav>
+    <button class="menu-btn" aria-label="Toggle menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============================== PAGE HEADER ============================== -->
+<section class="hero" style="padding: 56px 0 40px;">
+  <div class="wrap">
+    <div style="max-width: 760px;">
+      <span class="hero-eyebrow">Contact</span>
+      <h1>Let&rsquo;s talk.</h1>
+      <p>Questions about a book, bulk orders for your school or library, media inquiries, or just feedback. Drop us a line.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CONTACT GRID ============================== -->
+<section class="section">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <!-- LEFT: Form -->
+      <div class="contact-card">
+        <h2 style="font-size: 1.5rem;">Send a message</h2>
+        <p>We aim to respond within two business days.</p>
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thank-you.html">
+          <input type="hidden" name="form-name" value="contact">
+          <p hidden><label>Skip this field if you are human: <input name="bot-field"></label></p>
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required placeholder="Jane Doe">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="jane@example.com">
+          </div>
+          <div class="form-group">
+            <label for="topic">What is this about?</label>
+            <select id="topic" name="topic" required>
+              <option value="">Select a topic</option>
+              <option>General question</option>
+              <option>Bulk / wholesale order</option>
+              <option>Media or press inquiry</option>
+              <option>Author / partnership</option>
+              <option>Feedback on a book</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Your message</label>
+            <textarea id="message" name="message" required placeholder="Tell us a bit about what you have in mind..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send message</button>
+        </form>
+      </div>
+
+      <!-- RIGHT: Info -->
+      <div>
+        <h2 style="font-size: 1.5rem;">Other ways to reach us</h2>
+        <p>Prefer a direct route? Pick whichever works best.</p>
+
+        <ul class="info-list">
+          <li>
+            <div class="info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <strong>General inquiries</strong>
+              <span>hello@neuralnexuspress.com</span>
+            </div>
+          </li>
+          <li>
+            <div class="info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <div>
+              <strong>Bulk &amp; wholesale</strong>
+              <span>orders@neuralnexuspress.com</span>
+            </div>
+          </li>
+          <li>
+            <div class="info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><rect x="2" y="9" width="20" height="12" rx="2"/></svg>
+            </div>
+            <div>
+              <strong>Press &amp; media</strong>
+              <span>press@neuralnexuspress.com</span>
+            </div>
+          </li>
+          <li>
+            <div class="info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+            </div>
+            <div>
+              <strong>Find our books</strong>
+              <span>Available on <a href="https://www.amazon.com" target="_blank" rel="noopener">Amazon</a></span>
+            </div>
+          </li>
+        </ul>
+
+        <div style="margin-top: 32px; padding: 24px; background: var(--navy-50); border-radius: var(--radius); border-left: 4px solid var(--accent);">
+          <strong style="display:block; color: var(--navy-900); margin-bottom: 8px;">A note on response times</strong>
+          <span style="color: var(--ink-soft); font-size: 14px;">We&rsquo;re a small team. Most messages get a reply within two business days. For order issues with an existing Amazon purchase, please contact Amazon support first.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="color:#fff;">
+          <svg class="brand-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="#ffffff" opacity="0.12" d="M52 8c-3 0-6 .8-8.5 2.3C40 8.6 36 8 32 9.5c-7 2.7-11 9.7-10 17 -5 1.5-9 6-9.5 11.5 -.5 6 3 11.5 8.5 13.7 -2.5 4-2.5 9 .5 13 1.5 2 3.5 3.5 6 4.2 -.5 5.5 2.5 11 8 13.5 4 1.7 8.5 1.2 12-1 2.5 3 6.5 4.7 10.5 4.2 5.5-.7 10-4.7 11.5-10 4 .8 8.3-.3 11.5-3.5 4-4 5-10 2.5-15 4.5-3 7-8.3 6-13.7 -1-5.5-5-9.7-10-11 1-7-2.5-13.7-9-16.5C66 8 59 7 52 8z"/>
+            <g fill="#ffffff">
+              <circle cx="35" cy="28" r="3.2"/><circle cx="55" cy="22" r="3.2"/><circle cx="72" cy="32" r="3.2"/>
+              <circle cx="50" cy="42" r="3.2"/><circle cx="30" cy="52" r="3.2"/><circle cx="68" cy="55" r="3.2"/>
+              <circle cx="45" cy="65" r="3.2"/><circle cx="60" cy="75" r="3.2"/>
+            </g>
+            <g stroke="#ffffff" stroke-width="1.6" fill="none" stroke-linecap="round">
+              <line x1="35" y1="28" x2="55" y2="22"/><line x1="55" y1="22" x2="72" y2="32"/>
+              <line x1="35" y1="28" x2="50" y2="42"/><line x1="55" y1="22" x2="50" y2="42"/>
+              <line x1="72" y1="32" x2="50" y2="42"/><line x1="50" y1="42" x2="30" y2="52"/>
+              <line x1="50" y1="42" x2="68" y2="55"/><line x1="30" y1="52" x2="45" y2="65"/>
+              <line x1="68" y1="55" x2="45" y2="65"/><line x1="45" y1="65" x2="60" y2="75"/>
+              <line x1="68" y1="55" x2="60" y2="75"/>
+            </g>
+          </svg>
+          <span class="brand-name" style="color:#fff;">Neural Nexus<span class="sub" style="color:#f5b942;">Press</span></span>
+        </a>
+        <p style="margin-top:18px;">Scientifically designed puzzles and brain-training activities for seniors, young adults, and teens.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="books.html">All Books</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="books.html#puzzles">Puzzles</a></li>
+          <li><a href="books.html#prompted">Prompted Journals</a></li>
+          <li><a href="books.html#journals">Movie Journals</a></li>
+          <li><a href="books.html#creative">Creative Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Get in touch</a></li>
+          <li><a href="https://www.amazon.com" target="_blank" rel="noopener">Find us on Amazon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Neural Nexus Press. All rights reserved.</span>
+      <span>Backed by cutting-edge neuroscience.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
