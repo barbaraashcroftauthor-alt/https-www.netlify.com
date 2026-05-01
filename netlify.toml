@@ -1,28 +1,3 @@
-# =============================================================================
-# Netlify configuration for pagepathpublishing
-# Each imprint domain transparently serves its own subfolder.
-# =============================================================================
-
-# ----- Dropthorn Press -----
-[[redirects]]
-  from = "/*"
-  to = "/dropthorn-press/:splat"
-  status = 200
-  force = true
-  conditions = { Host = ["dropthorn.com", "www.dropthorn.com"] }
-
-# ----- Neural Nexus Press -----
-[[redirects]]
-  from = "/*"
-  to = "/neural-nexus-press/:splat"
-  status = 200
-  force = true
-  conditions = { Host = ["neuralnexuspress.com", "www.neuralnexuspress.com"] }
-
-# ----- Bright Haven Publishing -----
-[[redirects]]
-  from = "/*"
-  to = "/bright-haven-publishing/:splat"
-  status = 200
-  force = true
-  conditions = { Host = ["brighthavenpublishing.xyz", "www.brighthavenpublishing.xyz"] }
+# Netlify configuration
+# Domain-based rewrites are handled in _redirects (cleaner format).
+# This file is reserved for future build/plugin/header settings.
