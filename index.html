@@ -3,812 +3,673 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page & Path Publishing Group -Independent Publishing for Thoughtful Readers</title>
-<meta name="description" content="Page & Path Publishing Group is home to three distinctive imprints: Neural Nexus Press, Dropthorn Press, and Bright Haven Publishing. Each devoted to thoughtfully designed books.">
+<title>Page & Path Publishing Group: three indie imprints, one love of paper</title>
+<meta name="description" content="Page & Path Publishing Group is home to three small, distinct imprints: Neural Nexus Press, Dropthorn Press, and Bright Haven Publishing. Books made with care, designed to be read, and worth coming back to.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* SVG Logo Styles */
-  .logo-svg, .imprint-logo {
-    width: 100%;
-    height: 100%;
-  }
-
   :root {
     --cream: #fffdf8;
+    --cream-2: #faf6ec;
     --charcoal: #2a2a26;
+    --ink: #1a1a17;
     --sage: #5ba398;
     --sage-light: #7db8aa;
+    --sage-deep: #3d7268;
     --gray-dark: #4a4a44;
     --gray-light: #e8e4d8;
-    --accent: #d4b86a;
+    --line: #e0dccd;
+    --gold: #d4b86a;
+    --gold-warm: #e8c478;
+
+    /* Imprint accents */
+    --nnp-navy: #1a3656;
+    --nnp-cream: #e8f0f8;
+    --drop-coral: #d8624c;
+    --drop-cream: #fff0cc;
+    --haven-olive: #3d4023;
+    --haven-cream: #f0ebe0;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
   body {
     font-family: 'Inter', system-ui, sans-serif;
     background: var(--cream);
     color: var(--charcoal);
     line-height: 1.65;
-    font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3 {
     font-family: 'Lora', serif;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
     margin: 0;
   }
-
   a { color: inherit; text-decoration: none; }
   img, svg { display: block; }
 
-  /* ===== HEADER ===== */
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: var(--charcoal);
-    border-bottom: 1px solid var(--sage);
-  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
 
-  .nav-row {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1.25rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--accent);
-    font-family: 'Lora', serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
-
-  .logo-mark {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--sage);
-    color: var(--cream);
-    border-radius: 2px;
-    font-size: 1.2rem;
+  .scribble {
+    font-family: 'Caveat', cursive;
     font-weight: 700;
+    color: var(--sage-deep);
   }
 
-  nav {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
+  /* ============ HEADER ============ */
+  header.site {
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    padding: 1rem 1.5rem;
+    position: sticky; top: 0; z-index: 100;
   }
-
-  nav a {
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
+  .nav-inner {
+    max-width: 1180px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 0.7rem;
+    color: var(--charcoal);
+  }
+  .brand-mark {
+    width: 36px; height: 36px;
+    color: var(--sage);
+    flex-shrink: 0;
+  }
+  .brand-text {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.01em;
+  }
+  .brand-text .small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--sage-light);
-    transition: color 0.25s;
+    color: var(--gray-dark);
+    margin-top: 1px;
   }
-
-  nav a:hover {
-    color: var(--accent);
+  nav.primary {
+    display: flex; gap: 1.75rem;
   }
-
+  nav.primary a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    padding: 0.4rem 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color .2s, color .2s;
+  }
+  nav.primary a:hover { color: var(--sage-deep); border-bottom-color: var(--gold); }
   @media (max-width: 640px) {
-    nav { display: none; }
+    nav.primary { display: none; }
   }
 
-  /* ===== HERO ===== */
-  .hero {
-    background: linear-gradient(135deg, var(--charcoal) 0%, #252520 100%);
-    color: var(--cream);
-    padding: 8rem 2rem;
+  /* ============ HELLO / HERO ============ */
+  .hello {
+    padding: 4rem 1.5rem 2rem;
     text-align: center;
     position: relative;
   }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: linear-gradient(180deg, rgba(26,26,24,0.3) 0%, transparent 100%);
-    pointer-events: none;
+  .hello .scribble {
+    display: inline-block;
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+    transform: rotate(-3deg);
   }
-
-  .hero-content {
-    max-width: 700px;
+  .hello h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    color: var(--ink);
+    max-width: 760px;
+    margin: 0.5rem auto 1.2rem;
+  }
+  .hello h1 em {
+    font-style: italic;
+    color: var(--sage-deep);
+  }
+  .hello p {
+    font-size: 1.1rem;
+    color: var(--gray-dark);
+    max-width: 620px;
     margin: 0 auto;
-    position: relative;
-    z-index: 1;
+    line-height: 1.65;
+  }
+  .doodle {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+  .doodle.left  { left: 6%; top: 30%; width: 70px; transform: rotate(-15deg); }
+  .doodle.right { right: 7%; top: 24%; width: 60px; transform: rotate(12deg); }
+  @media (max-width: 800px) {
+    .doodle { display: none; }
   }
 
-  .hero h1 {
-    font-size: clamp(2.5rem, 7vw, 4rem);
-    margin-bottom: 1rem;
-    color: var(--accent);
-    letter-spacing: -0.02em;
+  /* ============ IMPRINTS ============ */
+  .imprints {
+    padding: 2rem 1.5rem 5rem;
   }
-
-  .hero .tagline {
-    font-size: 1.2rem;
-    color: var(--sage-light);
-    font-weight: 300;
-    margin-bottom: 2rem;
-    line-height: 1.6;
+  .section-eyebrow {
+    text-align: center;
+    margin-bottom: 0.6rem;
   }
-
-  .hero-cta {
-    display: inline-flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .btn {
-    padding: 0.85rem 2rem;
-    border-radius: 3px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    transition: all 0.25s;
-    cursor: pointer;
-    border: 2px solid transparent;
+  .section-eyebrow .scribble {
+    font-size: 1.5rem;
+    color: var(--gold);
+    transform: rotate(-2deg);
     display: inline-block;
   }
-
-  .btn-primary {
-    background: var(--sage);
-    color: var(--cream);
-    border-color: var(--sage);
-  }
-
-  .btn-primary:hover {
-    background: var(--sage-light);
-    border-color: var(--sage-light);
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: var(--accent);
-    border-color: var(--accent);
-  }
-
-  .btn-secondary:hover {
-    background: var(--accent);
-    color: var(--charcoal);
-    border-color: var(--accent);
-  }
-
-  /* ===== SECTIONS ===== */
-  section {
-    padding: 6rem 2rem;
-  }
-
-  .wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-head {
+  .section-title-center {
     text-align: center;
-    margin-bottom: 4rem;
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    color: var(--charcoal);
+    margin-bottom: 0.8rem;
   }
-
-  .section-head h2 {
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    margin-bottom: 1rem;
-  }
-
-  .section-head p {
-    font-size: 1.05rem;
+  .section-sub-center {
+    text-align: center;
     color: var(--gray-dark);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto 3rem;
+    font-size: 1rem;
   }
-
-  /* ===== ABOUT ===== */
-  .about {
-    background: white;
-    border-top: 1px solid var(--gray-light);
-    border-bottom: 1px solid var(--gray-light);
-  }
-
-  .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    margin-bottom: 3rem;
-  }
-
-  @media (max-width: 768px) {
-    .about-content { grid-template-columns: 1fr; gap: 2rem; }
-  }
-
-  .about h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--sage);
-  }
-
-  .about p {
-    margin-bottom: 1.25rem;
-    line-height: 1.8;
-    color: var(--gray-dark);
-  }
-
-  .about p:last-child {
-    margin-bottom: 0;
-  }
-
-  .about-stat {
-    padding: 1.5rem;
-    background: var(--cream);
-    border-left: 3px solid var(--sage);
-  }
-
-  .stat-num {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--sage);
-    margin-bottom: 0.25rem;
-  }
-
-  .stat-label {
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--gray-dark);
-  }
-
-  /* ===== IMPRINTS ===== */
-  .imprints {
-    background: var(--cream);
-  }
-
   .imprint-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 1.75rem;
+    max-width: 1180px;
+    margin: 0 auto;
   }
-
   .imprint-card {
     background: white;
-    border: 1px solid var(--gray-light);
-    border-radius: 4px;
-    padding: 2.5rem;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 2rem 1.75rem 1.5rem;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-    position: relative;
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    position: relative;
+    overflow: hidden;
   }
-
+  .imprint-card::after {
+    content: "";
+    position: absolute; left: 0; right: 0; top: 0; height: 5px;
+    background: var(--accent, var(--sage));
+  }
   .imprint-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 32px rgba(26,26,24,0.12);
-    border-color: var(--sage);
+    transform: translateY(-5px) rotate(-0.3deg);
+    box-shadow: 0 18px 36px rgba(26, 26, 24, 0.10);
+    border-color: var(--accent, var(--sage));
   }
+  .card-nnp    { --accent: var(--nnp-navy);   --accent-soft: var(--nnp-cream); }
+  .card-drop   { --accent: var(--drop-coral); --accent-soft: var(--drop-cream); }
+  .card-haven  { --accent: var(--haven-olive); --accent-soft: var(--haven-cream); }
 
   .imprint-mark {
-    width: 48px;
-    height: 48px;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    margin-bottom: 1.5rem;
+    width: 56px; height: 56px;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.1rem;
+    flex-shrink: 0;
   }
-
-  .imprint-mark.neural {
-    background: #e8f0f8;
-    color: #1a3656;
-  }
-
-  .imprint-mark.dropthorn {
-    background: #fff0cc;
-    color: #0e1116;
-  }
-
-  .imprint-mark.haven {
-    background: #f0ebe0;
-    color: #3d4023;
-  }
-
-  .imprint-card h3 {
+  .imprint-mark svg { width: 38px; height: 38px; }
+  .imprint-name {
     font-size: 1.4rem;
-    margin-bottom: 0.75rem;
-    color: var(--charcoal);
+    color: var(--ink);
+    margin-bottom: 0.5rem;
   }
-
-  .imprint-card p {
+  .imprint-tag {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+    line-height: 1.1;
+  }
+  .imprint-blurb {
     font-size: 0.95rem;
     color: var(--gray-dark);
-    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 1.4rem;
     flex-grow: 1;
+  }
+
+  .cover-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.55rem;
+    margin-bottom: 1.4rem;
+    padding: 1rem 0.85rem 0.85rem;
+    background: var(--accent-soft);
+    border-radius: 8px;
+  }
+  .cover-row img {
+    width: 100%;
+    aspect-ratio: 6 / 9;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 0 4px 10px rgba(26, 26, 24, 0.18), 0 1px 2px rgba(26, 26, 24, 0.12);
+    background: white;
+    transition: transform 0.2s;
+  }
+  .cover-row img:nth-child(2) { transform: rotate(-1.5deg); }
+  .cover-row img:nth-child(3) { transform: rotate(1deg); }
+  .imprint-card:hover .cover-row img { transform: rotate(0); }
+
+  .visit-line {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--line);
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .visit-line .arrow { transition: transform 0.25s; }
+  .imprint-card:hover .visit-line .arrow { transform: translateX(4px); }
+
+  /* ============ ABOUT ============ */
+  .about {
+    background: var(--cream-2);
+    padding: 5rem 1.5rem;
+    position: relative;
+  }
+  .about-grid {
+    max-width: 1080px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 800px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  .about h2 {
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    margin-bottom: 1rem;
+    color: var(--charcoal);
+  }
+  .about h2 em { color: var(--sage-deep); font-style: italic; }
+  .about-eyebrow {
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .about p {
+    font-size: 1.02rem;
+    color: var(--gray-dark);
+    margin-bottom: 1rem;
     line-height: 1.7;
   }
-
-  .imprint-topics {
+  .stat-strip {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.75rem;
-    justify-content: center;
-  }
-
-  .topic-tag {
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding: 0.35rem 0.75rem;
-    background: var(--cream);
-    color: var(--gray-dark);
-    border-radius: 2px;
-  }
-
-  .imprint-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--sage);
-    font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 0.03em;
-    transition: color 0.25s, gap 0.25s;
-  }
-
-  .imprint-link:hover {
-    color: var(--sage-light);
-    gap: 0.75rem;
-  }
-
-  .imprint-link::after {
-    content: '→';
-  }
-
-  /* ===== CONTACT ===== */
-  .contact {
-    background: white;
-    border-top: 1px solid var(--gray-light);
-  }
-
-  .contact-form {
-    background: var(--cream);
-    padding: 2rem;
-    border-radius: 4px;
-    margin-bottom: 2rem;
-  }
-
-  .field {
-    margin-bottom: 1.5rem;
-  }
-
-  .field label {
-    display: block;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--charcoal);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
-
-  .field input,
-  .field textarea,
-  .field select {
-    width: 100%;
-    padding: 0.85rem;
-    border: 1px solid var(--gray-light);
-    background: white;
-    font-family: inherit;
-    font-size: 0.95rem;
-    color: var(--charcoal);
-    border-radius: 3px;
-    transition: border-color 0.25s;
-  }
-
-  .field input:focus,
-  .field textarea:focus,
-  .field select:focus {
-    outline: none;
-    border-color: var(--sage);
-    background: white;
-  }
-
-  .field textarea {
-    min-height: 140px;
-    resize: vertical;
-  }
-
-  .contact-content {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .contact-info {
-    display: flex;
-    flex-direction: column;
     gap: 1.5rem;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
   }
-
-  .info-block {
-    padding: 1.5rem;
-    background: var(--cream);
-    border-radius: 3px;
-  }
-
-  .info-label {
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
-
-  .info-text {
-    font-size: 1.1rem;
-    color: var(--charcoal);
-    word-break: break-all;
-  }
-
-  .info-text a {
-    color: var(--sage);
-    font-weight: 600;
-    transition: color 0.25s;
-  }
-
-  .info-text a:hover {
-    color: var(--sage-light);
-  }
-
-  /* ===== FOOTER ===== */
-  footer {
-    background: var(--charcoal);
-    color: var(--sage-light);
-    padding: 3rem 2rem 2rem;
-    border-top: 1px solid var(--sage);
+  .stat {
+    flex: 1 1 120px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
     text-align: center;
-    font-size: 0.85rem;
   }
-
-  .footer-brand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--accent);
+  .stat-num {
     font-family: 'Lora', serif;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
-
-  .footer-brand .mark {
-    width: 28px;
-    height: 28px;
-    background: var(--sage);
-    color: var(--cream);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2px;
+    font-size: 1.9rem;
     font-weight: 700;
+    color: var(--sage-deep);
+    line-height: 1;
+    margin-bottom: 0.2rem;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-dark);
+  }
+  .principles { list-style: none; margin-top: 0.5rem; }
+  .principles li {
+    padding: 0.7rem 0 0.7rem 1.6rem;
+    border-bottom: 1px dashed var(--line);
+    position: relative;
+    color: var(--charcoal);
+  }
+  .principles li:last-child { border-bottom: 0; }
+  .principles li::before {
+    content: "✦";
+    position: absolute; left: 0; top: 0.6rem;
+    color: var(--gold);
     font-size: 1rem;
   }
 
+  /* ============ CONTACT ============ */
+  .contact {
+    padding: 5rem 1.5rem;
+    background: var(--cream);
+  }
+  .contact-inner {
+    max-width: 640px; margin: 0 auto;
+    text-align: center;
+  }
+  .contact h2 {
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    margin-bottom: 0.8rem;
+  }
+  .contact .subtitle {
+    color: var(--gray-dark);
+    margin-bottom: 2.5rem;
+    font-size: 1.05rem;
+  }
+  .contact-form {
+    text-align: left;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 2rem;
+  }
+  .field { margin-bottom: 1.2rem; }
+  .field label {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-dark);
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--cream-2);
+    font: inherit;
+    color: var(--charcoal);
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(91, 163, 152, 0.18);
+  }
+  .field textarea { min-height: 120px; resize: vertical; }
+  button.send {
+    background: var(--sage);
+    color: white;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.85rem 2rem;
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: background .15s, transform .12s;
+    margin-top: 0.4rem;
+  }
+  button.send:hover { background: var(--sage-deep); }
+  button.send:active { transform: translateY(1px); }
+
+  /* ============ FOOTER ============ */
+  footer.site {
+    background: var(--charcoal);
+    color: rgba(255, 253, 248, 0.78);
+    padding: 3rem 1.5rem 1.6rem;
+  }
+  .footer-inner {
+    max-width: 1180px; margin: 0 auto;
+  }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 253, 248, 0.12);
+  }
+  .footer-brand {
+    display: flex; align-items: center; gap: 0.7rem;
+    color: var(--gold);
+  }
+  .footer-brand .brand-mark { color: var(--sage-light); width: 32px; height: 32px; }
+  .footer-brand-text { font-family: 'Lora', serif; font-weight: 600; font-size: 1rem; }
   .footer-links {
-    margin: 1.5rem 0;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+    display: flex; gap: 1.75rem;
+    font-size: 0.88rem;
   }
-
-  .footer-links a {
-    color: var(--sage-light);
-    transition: color 0.25s;
-  }
-
-  .footer-links a:hover {
-    color: var(--accent);
-  }
-
+  .footer-links a { color: rgba(255, 253, 248, 0.78); }
+  .footer-links a:hover { color: var(--gold); }
   .footer-copy {
-    color: rgba(155, 179, 168, 0.65);
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(107, 142, 127, 0.2);
-  }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 768px) {
-    section { padding: 4rem 1.5rem; }
-    .hero { padding: 5rem 1.5rem; }
-    .nav-row { padding: 1rem 1.5rem; }
-    .imprint-grid { gap: 2rem; }
+    padding-top: 1.4rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: rgba(255, 253, 248, 0.5);
   }
 </style>
 </head>
-<body>
+<body id="top">
 
-<!-- ===== HEADER ===== -->
-<header>
-  <div class="nav-row">
-    <a href="#" class="logo">
-      <div class="logo-mark">
-        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <!-- Page & Path Logo: Open book with path -->
-          <defs>
-            <linearGradient id="pathGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#9eb3a8;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#6b8e7f;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <!-- Left page -->
-          <path d="M 20 15 L 50 15 L 50 85 L 20 85 Q 18 50 20 15" fill="none" stroke="url(#pathGrad)" stroke-width="2.5" stroke-linecap="round"/>
-          <!-- Right page -->
-          <path d="M 50 15 L 80 15 L 80 85 L 50 85 Q 52 50 50 15" fill="none" stroke="url(#pathGrad)" stroke-width="2.5" stroke-linecap="round"/>
-          <!-- Path line through pages -->
-          <path d="M 35 35 Q 50 45 65 38 Q 70 35 75 42" fill="none" stroke="url(#pathGrad)" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-        </svg>
-      </div>
-      <span>Page & Path</span>
+<!-- ============ HEADER ============ -->
+<header class="site">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <svg class="brand-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 20 15 L 50 15 L 50 85 L 20 85 Q 18 50 20 15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 50 15 L 80 15 L 80 85 L 50 85 Q 52 50 50 15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 35 35 Q 50 45 65 38 Q 70 35 75 42" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+      </svg>
+      <span class="brand-text">
+        Page &amp; Path
+        <span class="small">Publishing Group</span>
+      </span>
     </a>
-    <nav>
-      <a href="#about">About</a>
+    <nav class="primary">
       <a href="#imprints">Imprints</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Page & Path Publishing Group</h1>
-    <p class="tagline">Creative outlets designed for people who want to unwind, engage their minds, and express themselves—one page at a time.</p>
-    <div class="hero-cta">
-      <a href="#imprints" class="btn btn-primary">Explore Our Imprints</a>
-      <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== ABOUT ===== -->
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>About Page & Path</h2>
-      <p>We are a publishing collective devoted to creating thoughtfully designed creative outlets for people of all ages and interests.</p>
-    </div>
-
-    <div class="about-content">
-      <div>
-        <h3>Our Mission</h3>
-        <p>Page & Path Publishing Group is home to three distinctive publishing imprints, each with its own voice, audience, and creative vision. We believe people deserve books that are as beautifully made as they are enjoyable—whether those books challenge the mind, provide a creative escape, or inspire reflection.</p>
-        <p>We bring together publishers who share a commitment to quality design, intentional content, and respect for your time.</p>
-      </div>
-      <div>
-        <h3>What We Do</h3>
-        <p>Our imprints publish in many categories: brain-training puzzles and journals, bold and easy coloring books, and journals for reflection and devotion. But across every genre, we ask the same questions:</p>
-        <ul style="margin-left: 1.5rem; line-height: 1.9;">
-          <li>Is this book beautifully made?</li>
-          <li>Will it actually help you unwind or engage?</li>
-          <li>Will it still be worth coming back to?</li>
-        </ul>
-      </div>
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem;">
-      <div class="about-stat">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Active Imprints</div>
-      </div>
-      <div class="about-stat">
-        <div class="stat-num">50+</div>
-        <div class="stat-label">Published Titles</div>
-      </div>
-      <div class="about-stat">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Reader Stories</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== IMPRINTS ===== -->
+<!-- ============ IMPRINTS (BOOK COVERS FIRST) ============ -->
 <section class="imprints" id="imprints">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Our Imprints</h2>
-      <p>Three distinct publishing voices, united by a commitment to thoughtful design and engaged readers.</p>
-    </div>
+  <div class="imprint-grid">
 
-    <div class="imprint-grid">
-      <!-- Neural Nexus Press -->
-      <a class="imprint-card" href="neural-nexus-press/">
-        <div class="imprint-mark neural">
-          <svg class="imprint-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- Brain silhouette -->
-            <path fill="#1a3656" d="M52 8c-3 0-6 .8-8.5 2.3C40 8.6 36 8 32 9.5c-7 2.7-11 9.7-10 17 -5 1.5-9 6-9.5 11.5 -.5 6 3 11.5 8.5 13.7 -2.5 4-2.5 9 .5 13 1.5 2 3.5 3.5 6 4.2 -.5 5.5 2.5 11 8 13.5 4 1.7 8.5 1.2 12-1 2.5 3 6.5 4.7 10.5 4.2 5.5-.7 10-4.7 11.5-10 4 .8 8.3-.3 11.5-3.5 4-4 5-10 2.5-15 4.5-3 7-8.3 6-13.7 -1-5.5-5-9.7-10-11 1-7-2.5-13.7-9-16.5C66 8 59 7 52 8z"/>
-            <!-- Network nodes -->
-            <g fill="#ffffff">
-              <circle cx="35" cy="28" r="3.2"/>
-              <circle cx="55" cy="22" r="3.2"/>
-              <circle cx="72" cy="32" r="3.2"/>
-              <circle cx="50" cy="42" r="3.2"/>
-              <circle cx="30" cy="52" r="3.2"/>
-              <circle cx="68" cy="55" r="3.2"/>
-              <circle cx="45" cy="65" r="3.2"/>
-              <circle cx="60" cy="75" r="3.2"/>
-            </g>
-            <!-- Connections -->
-            <g stroke="#ffffff" stroke-width="1.6" fill="none" stroke-linecap="round">
-              <line x1="35" y1="28" x2="55" y2="22"/>
-              <line x1="55" y1="22" x2="72" y2="32"/>
-              <line x1="35" y1="28" x2="50" y2="42"/>
-              <line x1="55" y1="22" x2="50" y2="42"/>
-              <line x1="72" y1="32" x2="50" y2="42"/>
-              <line x1="50" y1="42" x2="30" y2="52"/>
-              <line x1="50" y1="42" x2="68" y2="55"/>
-              <line x1="30" y1="52" x2="45" y2="65"/>
-              <line x1="68" y1="55" x2="45" y2="65"/>
-              <line x1="45" y1="65" x2="60" y2="75"/>
-              <line x1="68" y1="55" x2="60" y2="75"/>
-            </g>
-          </svg>
-        </div>
-        <h3>Neural Nexus Press</h3>
-        <p>Scientifically designed puzzle books, journals, and brain-training activities. From word searches and sudoku to creative journals, Neural Nexus makes mental engagement rewarding and fun.</p>
-        <div class="imprint-topics">
-          <span class="topic-tag">Puzzles</span>
-          <span class="topic-tag">Brain Training</span>
-          <span class="topic-tag">Journals</span>
-        </div>
-      </a>
+    <!-- ===== Neural Nexus Press ===== -->
+    <a class="imprint-card card-nnp" href="https://neuralnexuspress.com/">
+      <div class="imprint-mark">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#1a3656" d="M52 8c-3 0-6 .8-8.5 2.3C40 8.6 36 8 32 9.5c-7 2.7-11 9.7-10 17 -5 1.5-9 6-9.5 11.5 -.5 6 3 11.5 8.5 13.7 -2.5 4-2.5 9 .5 13 1.5 2 3.5 3.5 6 4.2 -.5 5.5 2.5 11 8 13.5 4 1.7 8.5 1.2 12-1 2.5 3 6.5 4.7 10.5 4.2 5.5-.7 10-4.7 11.5-10 4 .8 8.3-.3 11.5-3.5 4-4 5-10 2.5-15 4.5-3 7-8.3 6-13.7 -1-5.5-5-9.7-10-11 1-7-2.5-13.7-9-16.5C66 8 59 7 52 8z"/>
+          <g fill="#fff">
+            <circle cx="35" cy="28" r="3.2"/><circle cx="55" cy="22" r="3.2"/><circle cx="72" cy="32" r="3.2"/>
+            <circle cx="50" cy="42" r="3.2"/><circle cx="30" cy="52" r="3.2"/><circle cx="68" cy="55" r="3.2"/>
+            <circle cx="45" cy="65" r="3.2"/><circle cx="60" cy="75" r="3.2"/>
+          </g>
+          <g stroke="#fff" stroke-width="1.6" fill="none">
+            <line x1="35" y1="28" x2="55" y2="22"/><line x1="55" y1="22" x2="72" y2="32"/>
+            <line x1="35" y1="28" x2="50" y2="42"/><line x1="50" y1="42" x2="30" y2="52"/>
+            <line x1="50" y1="42" x2="68" y2="55"/><line x1="30" y1="52" x2="45" y2="65"/>
+            <line x1="68" y1="55" x2="45" y2="65"/><line x1="45" y1="65" x2="60" y2="75"/>
+          </g>
+        </svg>
+      </div>
+      <h3 class="imprint-name">Neural Nexus Press</h3>
+      <p class="imprint-tag">give your brain a workout.</p>
+      <p class="imprint-blurb">Puzzles, brain-training activities, and journals for active minds, from Sudoku for the morning wake-up to dot-grid notebooks for teens with ideas.</p>
+      <div class="cover-row">
+        <img src="https://m.media-amazon.com/images/I/71bFMYVeJSL.jpg" alt="Summer Zen" loading="lazy">
+        <img src="https://m.media-amazon.com/images/I/71uM71vqeNL.jpg" alt="Phone Charging Puzzles" loading="lazy">
+        <img src="https://m.media-amazon.com/images/I/71h9VwazJQL.jpg" alt="After the Credits" loading="lazy">
+        <img src="https://m.media-amazon.com/images/I/51So7zuLonL.jpg" alt="Dot by Dot" loading="lazy">
+      </div>
+      <div class="visit-line">
+        <span>neuralnexuspress.com</span>
+        <span class="arrow">→</span>
+      </div>
+    </a>
 
-      <!-- Dropthorn Press -->
-      <a class="imprint-card" href="dropthorn-press/">
-        <div class="imprint-mark dropthorn">
-          <img src="dropthorn-press/logo.png" alt="Dropthorn Press" style="width: 100%; height: 100%; object-fit: contain;">
-        </div>
-        <h3>Dropthorn Press</h3>
-        <p>Bold and easy coloring books for people who love to color. With thick lines, open spaces, and themes from scenic landscapes to patriotic celebrations, Dropthorn books let you finish what you start and come back to what you love.</p>
-        <div class="imprint-topics">
-          <span class="topic-tag">Coloring</span>
-          <span class="topic-tag">Activity</span>
-          <span class="topic-tag">Themes</span>
-        </div>
-      </a>
+    <!-- ===== Dropthorn Press ===== -->
+    <a class="imprint-card card-drop" href="https://dropthorn.com/">
+      <div class="imprint-mark">
+        <img src="https://dropthorn.com/logo.png" alt="Dropthorn Press" style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
+      <h3 class="imprint-name">Dropthorn Press</h3>
+      <p class="imprint-tag">bold lines, big calm.</p>
+      <p class="imprint-blurb">The Ultimate Bold and Easy coloring books. Thick lines, open spaces, themes you'll actually want to color, from prairie skies to Christmas critters.</p>
+      <div class="cover-row">
+        <img src="https://dropthorn.com/covers/B0F6M25DX4.jpg" alt="Starry Night" loading="lazy">
+        <img src="https://dropthorn.com/covers/1970516038.jpg" alt="Farm Friends" loading="lazy">
+        <img src="https://dropthorn.com/covers/B0FFN2D7T3.jpg" alt="Prairie Trails" loading="lazy">
+        <img src="https://dropthorn.com/covers/197051602X.jpg" alt="Christmas Critter Cuties" loading="lazy">
+      </div>
+      <div class="visit-line">
+        <span>dropthorn.com</span>
+        <span class="arrow">→</span>
+      </div>
+    </a>
 
-      <!-- Bright Haven Publishing -->
-      <a class="imprint-card" href="bright-haven-publishing/">
-        <div class="imprint-mark haven">
-          <svg class="imprint-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- Bright Haven radiating mark -->
-            <g fill="none" stroke="#3d4023" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="50" y1="42" x2="50" y2="14"/>
-              <line x1="40.5" y1="43.5" x2="33" y2="17"/>
-              <line x1="59.5" y1="43.5" x2="67" y2="17"/>
-              <line x1="32.5" y1="47" x2="18" y2="26"/>
-              <line x1="67.5" y1="47" x2="82" y2="26"/>
-              <line x1="26.5" y1="52" x2="9" y2="40"/>
-              <line x1="73.5" y1="52" x2="91" y2="40"/>
-              <path d="M12 70 Q 50 55 50 50"/>
-              <path d="M88 70 Q 50 55 50 50"/>
-              <line x1="9" y1="72" x2="91" y2="72"/>
-            </g>
-          </svg>
-        </div>
-        <h3>Bright Haven Publishing</h3>
-        <p>Uplifting activity books that celebrate reflection, beauty, and creativity. From journals for quiet moments to coloring books with meaningful design, Bright Haven offers a peaceful creative space.</p>
-        <div class="imprint-topics">
-          <span class="topic-tag">Scripture</span>
-          <span class="topic-tag">Devotional</span>
-          <span class="topic-tag">Reflection</span>
-        </div>
-      </a>
-    </div>
+    <!-- ===== Bright Haven Publishing ===== -->
+    <a class="imprint-card card-haven" href="https://brighthavenpublishing.xyz/">
+      <div class="imprint-mark">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#3d4023" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="50" y1="42" x2="50" y2="14"/>
+            <line x1="40.5" y1="43.5" x2="33" y2="17"/>
+            <line x1="59.5" y1="43.5" x2="67" y2="17"/>
+            <line x1="32.5" y1="47" x2="18" y2="26"/>
+            <line x1="67.5" y1="47" x2="82" y2="26"/>
+            <line x1="26.5" y1="52" x2="9" y2="40"/>
+            <line x1="73.5" y1="52" x2="91" y2="40"/>
+            <path d="M12 70 Q 50 55 50 50"/>
+            <path d="M88 70 Q 50 55 50 50"/>
+            <line x1="9" y1="72" x2="91" y2="72"/>
+          </g>
+        </svg>
+      </div>
+      <h3 class="imprint-name">Bright Haven Publishing</h3>
+      <p class="imprint-tag">a quiet place to land.</p>
+      <p class="imprint-blurb">Devotionals, scripture coloring, and reflection journals for moments that ask for stillness, beautiful design, meaningful pages, made to come back to.</p>
+      <div class="cover-row">
+        <img src="https://brighthavenpublishing.xyz/covers/she-is-strong.jpg" alt="She is Strong" loading="lazy">
+        <img src="https://brighthavenpublishing.xyz/covers/peaceful-reflections.jpg" alt="Peaceful Reflections" loading="lazy">
+        <img src="https://brighthavenpublishing.xyz/covers/24-days-bible-beginnings.jpg" alt="24 Days of Bible Beginnings" loading="lazy">
+        <img src="https://brighthavenpublishing.xyz/covers/temples-us-complete.jpg" alt="Temples of the United States" loading="lazy">
+      </div>
+      <div class="visit-line">
+        <span>brighthavenpublishing.xyz</span>
+        <span class="arrow">→</span>
+      </div>
+    </a>
+
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Get in Touch</h2>
-      <p>Questions about our books? Interested in wholesale?<br>Just want to say hello? We'd love to hear from you.</p>
-    </div>
+<!-- ============ WELCOME (after the books) ============ -->
+<section class="hello">
+  <h1>Three little presses,<br><em>one love of paper.</em></h1>
+  <p>We make books we'd want on our own shelves: puzzles to solve, journals to scribble in, coloring pages to fill, scripture to sit with. Three imprints, plenty to flip through.</p>
+</section>
 
-    <div class="contact-content">
-      <form name="contact" method="POST" action="thank-you.html" netlify netlify-honeypot="bot-field" class="contact-form">
-        <input type="hidden" name="form-name" value="contact">
-        <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
-
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" type="text" name="name" required>
-        </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" type="email" name="email" required>
-        </div>
-
-        <div class="field">
-          <label for="subject">Subject</label>
-          <select id="subject" name="subject" required>
-            <option value="">Select a subject</option>
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Wholesale & Bookstores">Wholesale & Bookstores</option>
-            <option value="Press & Reviews">Press & Reviews</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
-      </form>
-
-      <div class="contact-info" style="margin-top: 2rem;">
-        <div class="info-block">
-          <div class="info-label">For Imprint-Specific Inquiries</div>
-          <div class="info-text">Each imprint maintains its own contact information.<br>Visit the imprint site for their specific contacts.</div>
-        </div>
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div>
+      <span class="about-eyebrow">a little about us</span>
+      <h2>We're a small group <em>who really like books.</em></h2>
+      <p>Page &amp; Path Publishing Group is the parent of three indie imprints. We're not big. We don't try to be. We pick our covers, watch our paper stock, and obsess about how a book actually feels when you sit with it.</p>
+      <p>Each imprint has its own audience and its own voice. What they share is this: every title has been thought about by an actual person who wanted it to exist.</p>
+      <div class="stat-strip">
+        <div class="stat"><div class="stat-num">3</div><div class="stat-label">Imprints</div></div>
+        <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Titles</div></div>
+        <div class="stat"><div class="stat-num">2025</div><div class="stat-label">Founded</div></div>
       </div>
     </div>
+    <div>
+      <span class="about-eyebrow">what we ask of every book</span>
+      <h2>The three things that matter.</h2>
+      <ul class="principles">
+        <li><strong>Is it beautifully made?</strong> Paper, print, layout, the whole feel of holding it.</li>
+        <li><strong>Will it actually do what it says?</strong> Help you unwind, focus, reflect, or play.</li>
+        <li><strong>Will it be worth coming back to?</strong> One use isn't enough; we want it on your shelf.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="footer-brand">
-    <div class="mark">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
-        <path d="M 20 15 L 50 15 L 50 85 L 20 85 Q 18 50 20 15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M 50 15 L 80 15 L 80 85 L 50 85 Q 52 50 50 15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M 35 35 Q 50 45 65 38 Q 70 35 75 42" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
-      </svg>
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <span class="scribble" style="font-size: 1.4rem; color: var(--gold); display: inline-block; transform: rotate(-2deg);">say hello</span>
+    <h2>We'd love to hear from you.</h2>
+    <p class="subtitle">Wholesale, press, a kind note, or a book idea you wish existed. Any of it. We read everything.</p>
+
+    <form name="contact" method="POST" action="thank-you.html" netlify netlify-honeypot="bot-field" class="contact-form">
+      <input type="hidden" name="form-name" value="contact">
+      <p hidden><label>Skip if you are human: <input name="bot-field"></label></p>
+      <div class="field">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+      </div>
+      <div class="field">
+        <label for="topic">What is this about?</label>
+        <select id="topic" name="topic">
+          <option>Just saying hi</option>
+          <option>Wholesale or bookstore inquiry</option>
+          <option>Press or interview</option>
+          <option>Author or partnership</option>
+          <option>A book idea you wish existed</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="send">Send it &rarr;</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="#top" class="footer-brand">
+        <svg class="brand-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 20 15 L 50 15 L 50 85 L 20 85 Q 18 50 20 15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 50 15 L 80 15 L 80 85 L 50 85 Q 52 50 50 15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 35 35 Q 50 45 65 38 Q 70 35 75 42" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+        </svg>
+        <span class="footer-brand-text">Page &amp; Path Publishing Group</span>
+      </a>
+      <nav class="footer-links">
+        <a href="#imprints">Imprints</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <span>Page & Path Publishing Group</span>
-  </div>
-  <div class="footer-links">
-    <a href="#about">About</a>
-    <a href="#imprints">Imprints</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="footer-copy">
-    &copy; 2026 Page & Path Publishing Group. All rights reserved. | Home to Neural Nexus Press, Dropthorn Press, and Bright Haven Publishing.
+    <div class="footer-copy">
+      &copy; 2026 Page &amp; Path Publishing Group. Home to Neural Nexus Press, Dropthorn Press, and Bright Haven Publishing.
+    </div>
   </div>
 </footer>
 
 </body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
