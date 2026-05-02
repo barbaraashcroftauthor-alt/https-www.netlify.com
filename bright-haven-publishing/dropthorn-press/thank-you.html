@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thanks for writing: Dropthorn Press</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f9f3e3;
+    --bg-2: #f1e8cf;
+    --ink: #0e1116;
+    --ink-2: #4a4f57;
+    --paper: #ffffff;
+    --c-coral: #ff5a4d;
+    --c-mustard: #f7c14b;
+    --c-mint: #a8d8b9;
+    --c-pink: #ff8fb5;
+    --c-blue: #2f5fd7;
+    --c-cream: #fff5d6;
+    --c-red: #c4304a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+  h1, h2 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; line-height: 1; letter-spacing: -0.02em; margin: 0; }
+  a { color: inherit; }
+
+  /* ===== NAV ===== */
+  .nav {
+    background: var(--bg);
+    border-bottom: 2px solid var(--ink);
+  }
+  .nav-row {
+    max-width: 1240px; margin: 0 auto; padding: 12px 28px;
+    display: flex; align-items: center; gap: 32px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; color: var(--ink);
+    line-height: 1;
+  }
+  .logo-img { height: 52px; width: auto; display: block; }
+  .logo-text {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800; font-size: 22px; letter-spacing: -0.02em;
+  }
+  .nav-links { display: flex; gap: 28px; margin-left: auto; }
+  .nav-links a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--ink); }
+  .nav-links a:hover { color: var(--c-coral); }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 18px; border-radius: 999px;
+    background: var(--ink); color: var(--bg);
+    font-weight: 700; font-size: 14px; text-decoration: none;
+  }
+  .pill:hover { background: var(--c-coral); }
+
+  /* ===== MAIN ===== */
+  main {
+    flex: 1;
+    padding: 80px 28px;
+    display: grid; place-items: center;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(247,193,75,.35), transparent 35%),
+      radial-gradient(circle at 88% 25%, rgba(255,143,181,.35), transparent 38%),
+      radial-gradient(circle at 60% 90%, rgba(168,216,185,.55), transparent 45%),
+      var(--bg);
+    position: relative; overflow: hidden;
+  }
+  .panel {
+    max-width: 720px; width: 100%;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 22px;
+    box-shadow: 8px 8px 0 var(--ink);
+    padding: 56px 48px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .stamp {
+    display: inline-block;
+    background: var(--c-coral); color: #fff;
+    font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 8px 16px; border-radius: 999px;
+    border: 1.5px solid var(--ink);
+    margin-bottom: 24px;
+    transform: rotate(-2deg);
+  }
+  .panel-logo {
+    height: 100px; width: auto; display: block;
+    margin: 0 auto 28px;
+  }
+  .panel h1 {
+    font-size: clamp(48px, 6vw, 84px);
+    margin-bottom: 18px;
+  }
+  .panel h1 .swap { color: var(--c-coral); }
+  .panel p {
+    font-size: 18px; color: var(--ink-2);
+    max-width: 460px; margin: 0 auto 32px;
+  }
+  .panel .ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    padding: 14px 24px; border-radius: 999px; font-weight: 700; font-size: 15px;
+    text-decoration: none; border: 2px solid var(--ink); cursor: pointer;
+    background: var(--paper); color: var(--ink);
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: transform .12s, background .12s, box-shadow .12s;
+    font-family: inherit;
+  }
+  .btn:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--ink); }
+  .btn.solid { background: var(--ink); color: var(--bg); }
+  .btn.solid:hover { background: var(--c-coral); border-color: var(--c-coral); color: #fff; box-shadow: 4px 4px 0 var(--ink); }
+
+  /* ===== Floating doodles ===== */
+  .doodle { position: absolute; pointer-events: none; z-index: 1; }
+  .d1 { left: 4%; top: 8%; width: 90px; transform: rotate(-12deg); }
+  .d2 { right: 6%; top: 18%; width: 76px; transform: rotate(8deg); }
+  .d3 { left: 10%; bottom: 12%; width: 70px; transform: rotate(18deg); }
+  .d4 { right: 12%; bottom: 8%; width: 100px; transform: rotate(-6deg); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--ink); color: var(--bg);
+    padding: 36px 28px;
+    border-top: 2px solid var(--ink);
+  }
+  .footer-row {
+    max-width: 1240px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+    font-size: 13px; color: rgba(249,243,227,.65);
+  }
+  .footer-logo {
+    height: 48px; width: auto; display: block;
+    filter: invert(1);
+  }
+  footer a { color: var(--c-mustard); text-decoration: none; font-weight: 600; }
+
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+    .panel { padding: 40px 28px; }
+    .panel-logo { height: 80px; }
+    main { padding: 56px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-row">
+    <a href="index.html" class="logo">
+      <img class="logo-img" src="logo.png" alt="">
+      <span class="logo-text">Dropthorn Press</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#collections">Collections</a>
+      <a href="index.html#america">America 250</a>
+      <a href="index.html#catalog">All books</a>
+      <a href="index.html#about">About</a>
+    </nav>
+    <a href="index.html#catalog" class="pill">Shop the catalog</a>
+  </div>
+</header>
+
+<main>
+
+  <svg class="doodle d1" viewBox="0 0 60 60" fill="none">
+    <path d="M30 5 L34 24 L52 27 L34 30 L30 49 L26 30 L8 27 L26 24 Z" fill="#ff5a4d" stroke="#0e1116" stroke-width="2"/>
+  </svg>
+  <svg class="doodle d2" viewBox="0 0 60 60" fill="none">
+    <circle cx="30" cy="30" r="22" fill="#f7c14b" stroke="#0e1116" stroke-width="2"/>
+    <path d="M22 24 q4 -4 8 0 M30 24 q4 -4 8 0 M22 36 q8 6 16 0" stroke="#0e1116" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </svg>
+  <svg class="doodle d3" viewBox="0 0 60 60" fill="none">
+    <path d="M30 50 Q6 32 6 18 Q6 8 16 8 Q24 8 30 20 Q36 8 44 8 Q54 8 54 18 Q54 32 30 50 Z" fill="#ff8fb5" stroke="#0e1116" stroke-width="2"/>
+  </svg>
+  <svg class="doodle d4" viewBox="0 0 60 30" fill="none">
+    <path d="M3 15 Q12 3 21 15 T39 15 T57 15" stroke="#0e1116" stroke-width="2.5" fill="none"/>
+  </svg>
+
+  <section class="panel">
+    <span class="stamp">Message Received</span>
+    <img class="panel-logo" src="logo.png" alt="Dropthorn Press">
+    <h1>Thanks for <span class="swap">writing</span>.</h1>
+    <p>We have your note and we'll get back to you within a few days. While you wait, take a tour of the shelf or peek at the America 250 collection.</p>
+    <div class="ctas">
+      <a href="index.html#catalog" class="btn solid">Browse the catalog
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="index.html" class="btn">Back to home</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-row">
+    <a href="index.html" style="display: flex; align-items: center; gap: 12px; color: var(--bg); text-decoration: none;">
+      <img class="footer-logo" src="logo.png" alt="">
+      <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 18px;">Dropthorn Press</span>
+    </a>
+    <span>© 2026 Dropthorn Press · <a href="index.html#contact">Contact</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

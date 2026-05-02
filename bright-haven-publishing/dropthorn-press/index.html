@@ -1,0 +1,975 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dropthorn Press: Bold and easy coloring books</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f9f3e3;
+    --bg-2: #f1e8cf;
+    --ink: #0e1116;
+    --ink-2: #4a4f57;
+    --paper: #ffffff;
+    --line: #0e1116;
+
+    --c-coral: #ff5a4d;
+    --c-mustard: #f7c14b;
+    --c-teal: #1f7a6d;
+    --c-plum: #6a3aa0;
+    --c-pink: #ff8fb5;
+    --c-blue: #2f5fd7;
+    --c-mint: #a8d8b9;
+    --c-red: #c4304a;
+    --c-cream: #fff5d6;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: "Bricolage Grotesque", "Inter", sans-serif; font-weight: 800; line-height: 1; letter-spacing: -0.02em; margin: 0; }
+  a { color: inherit; }
+
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+
+  /* ========== NAV ========== */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--bg);
+    border-bottom: 2px solid var(--line);
+  }
+  .nav-row {
+    max-width: 1240px; margin: 0 auto; padding: 12px 28px;
+    display: flex; align-items: center; gap: 32px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; color: var(--ink);
+    line-height: 1;
+  }
+  .logo-img {
+    height: 52px; width: auto; display: block;
+  }
+  .logo-text {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    text-transform: none;
+  }
+  .nav-links { display: flex; gap: 28px; margin-left: auto; }
+  .nav-links a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--ink); }
+  .nav-links a:hover { color: var(--c-coral); }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 18px; border-radius: 999px;
+    background: var(--ink); color: var(--bg);
+    font-weight: 700; font-size: 14px; text-decoration: none;
+    transition: background .15s;
+  }
+  .pill:hover { background: var(--c-coral); }
+
+  /* ========== HERO ========== */
+  .hero { padding: 64px 0 24px; position: relative; overflow: hidden; }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: end;
+  }
+  .tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px; border: 1.5px solid var(--ink); border-radius: 999px;
+    background: var(--c-cream);
+    font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .tag .dot { width: 8px; height: 8px; background: var(--c-coral); border-radius: 50%; }
+  .hero h1 {
+    font-size: clamp(54px, 8vw, 112px);
+    margin: 22px 0 24px;
+  }
+  .hero h1 .swap { color: var(--c-coral); }
+  .hero p.lede {
+    font-size: 19px; max-width: 540px; color: var(--ink-2); margin: 0 0 32px;
+  }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    padding: 14px 24px; border-radius: 999px; font-weight: 700; font-size: 15px;
+    text-decoration: none; border: 2px solid var(--ink); cursor: pointer;
+    background: var(--paper); color: var(--ink);
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: transform .12s, background .12s, color .12s;
+  }
+  .btn:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--ink); }
+  .btn.solid { background: var(--ink); color: var(--bg); }
+  .btn.solid:hover { background: var(--c-coral); border-color: var(--c-coral); color: #fff; box-shadow: 4px 4px 0 var(--ink); }
+
+  .hero-art { position: relative; height: 460px; }
+
+  /* ========== "Cover" mockups ========== */
+  .cover {
+    position: relative;
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 6px 6px 0 var(--ink);
+    background: var(--paper);
+    display: flex; flex-direction: column;
+  }
+  .cover-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 5;
+    transition: opacity .25s;
+  }
+  .cover.fit-contain .cover-img {
+    object-fit: contain;
+    padding: 4px;
+  }
+  .cover.fit-contain.has-img {
+    background: #ffffff;
+  }
+  .cover.has-img .ribbon,
+  .cover.has-img .title-block,
+  .cover.has-img .imprint { display: none; }
+  .cover .imprint {
+    position: absolute; bottom: 8px; left: 10px; right: 10px;
+    font-family: "Inter", sans-serif; font-weight: 700; font-size: 9px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink); opacity: .8; display: flex; justify-content: space-between;
+  }
+  .cover .ribbon {
+    position: absolute; top: 0; left: 0; right: 0;
+    padding: 6px 10px;
+    font-weight: 700; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    border-bottom: 2px solid var(--ink);
+    background: var(--c-cream);
+  }
+  .cover .title-block {
+    padding: 38px 16px 28px;
+    text-align: center;
+    flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    gap: 14px;
+  }
+  .cover .title-block .t {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800; line-height: 0.95; letter-spacing: -0.02em;
+    font-size: clamp(20px, 2.2vw, 30px);
+    color: var(--ink);
+    max-width: 90%;
+  }
+  .cover .art {
+    width: 86%; max-width: 220px; aspect-ratio: 1/1;
+  }
+
+  .cover.k-coral { background: var(--c-coral); }
+  .cover.k-coral .ribbon { background: #ffe1dc; }
+  .cover.k-mustard { background: var(--c-mustard); }
+  .cover.k-mustard .ribbon { background: #fff0c2; }
+  .cover.k-teal { background: var(--c-teal); }
+  .cover.k-teal .title-block .t,
+  .cover.k-teal .imprint { color: var(--c-cream); }
+  .cover.k-teal .ribbon { background: var(--c-mint); border-bottom-color: var(--ink); }
+  .cover.k-pink { background: var(--c-pink); }
+  .cover.k-pink .ribbon { background: #ffe5ed; }
+  .cover.k-blue { background: var(--c-blue); color: var(--c-cream); }
+  .cover.k-blue .title-block .t { color: var(--c-cream); }
+  .cover.k-blue .imprint { color: var(--c-cream); opacity: .9; }
+  .cover.k-blue .ribbon { background: #ced9f4; }
+  .cover.k-mint { background: var(--c-mint); }
+  .cover.k-mint .ribbon { background: #e6f3eb; }
+  .cover.k-red { background: var(--c-red); color: var(--c-cream); }
+  .cover.k-red .title-block .t { color: var(--c-cream); }
+  .cover.k-red .imprint { color: var(--c-cream); opacity: .9; }
+  .cover.k-red .ribbon { background: #f7d2d8; color: var(--ink); }
+  .cover.k-cream { background: var(--c-cream); }
+  .cover.k-cream .ribbon { background: var(--bg-2); }
+  .cover.k-plum { background: var(--c-plum); color: var(--c-cream); }
+  .cover.k-plum .title-block .t { color: var(--c-cream); }
+  .cover.k-plum .imprint { color: var(--c-cream); opacity: .9; }
+  .cover.k-plum .ribbon { background: #d6c4ec; color: var(--ink); }
+
+  /* hero floating covers */
+  .float { position: absolute; transition: transform .25s; }
+  .float:hover { transform: translate(-2px, -4px) rotate(-1deg); }
+  .float-1 { left: 0; top: 18%; width: 220px; aspect-ratio: 2/3; transform: rotate(-7deg); }
+  .float-2 { left: 50%; top: 4%; width: 250px; aspect-ratio: 2/3; transform: translateX(-50%) rotate(2deg); z-index: 2; }
+  .float-3 { right: 0; top: 22%; width: 210px; aspect-ratio: 2/3; transform: rotate(6deg); }
+  .float-2:hover { transform: translateX(-50%) translateY(-4px) rotate(2deg); }
+
+  .scribble { position: absolute; pointer-events: none; }
+
+  /* ========== PROMISE STRIP ========== */
+  .promise {
+    background: var(--ink); color: var(--bg);
+    padding: 22px 0;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    overflow: hidden;
+  }
+  .promise-row {
+    display: flex; gap: 56px; align-items: center; justify-content: center; flex-wrap: wrap;
+    font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
+    font-size: 16px; letter-spacing: -0.01em;
+  }
+  .promise-row span { display: inline-flex; align-items: center; gap: 12px; }
+  .promise-row span::before {
+    content: ""; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--c-mustard); display: inline-block;
+  }
+  .promise-row span:nth-child(2)::before { background: var(--c-coral); }
+  .promise-row span:nth-child(3)::before { background: var(--c-mint); }
+  .promise-row span:nth-child(4)::before { background: var(--c-pink); }
+
+  /* ========== SECTIONS ========== */
+  section { padding: 88px 0; }
+  .section-head { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 48px; flex-wrap: wrap; }
+  .section-head h2 { font-size: clamp(38px, 4.6vw, 64px); }
+  .section-head p { color: var(--ink-2); max-width: 480px; margin: 14px 0 0; }
+  .kicker {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--c-coral); margin-bottom: 8px;
+  }
+
+  /* ========== COLLECTIONS ========== */
+  .collections {
+    background: var(--bg);
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+  }
+  .col-grid {
+    display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px;
+  }
+  .col-card {
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 24px;
+    color: var(--ink);
+    text-decoration: none;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: space-between;
+    min-height: 260px;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .col-card:hover { transform: translate(-3px,-3px); box-shadow: 6px 6px 0 var(--ink); }
+  .col-card h3 { font-size: clamp(28px, 3vw, 44px); margin-bottom: 10px; }
+  .col-card p { color: var(--ink); opacity: .82; font-size: 15px; max-width: 320px; }
+  .col-card .count {
+    align-self: flex-start;
+    font-weight: 700; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    background: var(--ink); color: var(--bg);
+    padding: 5px 11px; border-radius: 999px;
+  }
+  .col-card .col-art {
+    position: absolute; right: -10px; bottom: -10px; opacity: .9; pointer-events: none;
+  }
+  .col-scenic   { background: var(--c-mustard); grid-column: span 7; }
+  .col-critters { background: var(--c-pink); grid-column: span 5; }
+  .col-holiday  { background: var(--c-mint); grid-column: span 5; }
+  .col-america  { background: var(--c-blue); color: var(--c-cream); grid-column: span 7; }
+  .col-america h3, .col-america .count { color: var(--c-cream); }
+  .col-america .count { background: var(--c-cream); color: var(--c-blue); }
+  .col-america p { color: var(--c-cream); opacity: .92; }
+
+  /* ========== FEATURED: AMERICA 250 ========== */
+  .feature {
+    background: var(--bg-2);
+    border-bottom: 2px solid var(--ink);
+    padding: 88px 0;
+  }
+  .feature-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center;
+  }
+  .feature h2 { font-size: clamp(40px, 5vw, 70px); margin-bottom: 18px; }
+  .feature p { color: var(--ink-2); font-size: 17px; max-width: 460px; }
+  .feature-stamp {
+    display: inline-block;
+    font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    background: var(--c-red); color: var(--c-cream);
+    padding: 8px 14px; border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  .feature-covers {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .feature-covers .cover { aspect-ratio: 2/3; }
+  .feature-covers .cover:nth-child(2) { transform: translateY(20px); }
+
+  /* ========== CATALOG ========== */
+  .catalog { background: var(--bg); }
+  .filterbar {
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    padding: 16px;
+    background: var(--paper);
+    border: 2px solid var(--ink); border-radius: 16px;
+    margin-bottom: 36px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .search {
+    flex: 1; min-width: 240px;
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 16px; background: var(--bg);
+    border: 1.5px solid var(--ink); border-radius: 999px;
+  }
+  .search input {
+    flex: 1; border: 0; background: transparent; outline: none; font: inherit;
+    font-size: 15px; color: var(--ink);
+  }
+  .chip {
+    border: 1.5px solid var(--ink); background: var(--paper); color: var(--ink);
+    padding: 9px 16px; border-radius: 999px; font: inherit; font-weight: 600; font-size: 14px;
+    cursor: pointer; transition: background .12s, color .12s;
+  }
+  .chip:hover { background: var(--c-mustard); }
+  .chip.active { background: var(--ink); color: var(--bg); }
+
+  .grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;
+  }
+  .book { display: flex; flex-direction: column; gap: 12px; }
+  .book .cover { aspect-ratio: 2/3; }
+  .book .cover:hover { box-shadow: 8px 8px 0 var(--ink); transform: translate(-2px,-2px); }
+  .book h4 {
+    font-family: "Inter", sans-serif; font-weight: 700; font-size: 16px; line-height: 1.25;
+    letter-spacing: 0; margin: 0;
+  }
+  .book .b-meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    color: var(--ink-2); font-size: 13px; font-weight: 500;
+  }
+  .book .b-price { color: var(--ink); font-weight: 700; }
+
+  /* ========== ABOUT ========== */
+  .about { background: var(--ink); color: var(--bg); border-top: 2px solid var(--ink); }
+  .about .kicker { color: var(--c-mustard); }
+  .about .container { display: grid; grid-template-columns: 1.05fr 1fr; gap: 60px; align-items: start; }
+  .about h2 { font-size: clamp(40px, 5vw, 72px); margin-bottom: 24px; color: var(--bg); }
+  .about p { color: rgba(249,243,227,.78); font-size: 17px; }
+  .principles { margin-top: 32px; display: grid; gap: 14px; }
+  .principle {
+    border: 2px solid var(--bg); border-radius: 14px;
+    padding: 18px 20px;
+    display: flex; align-items: center; gap: 18px;
+  }
+  .principle .num {
+    font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 28px;
+    color: var(--c-mustard);
+    width: 40px; flex-shrink: 0;
+  }
+  .principle .body { font-weight: 600; }
+  .principle .body span { display: block; font-weight: 400; color: rgba(249,243,227,.68); font-size: 14px; margin-top: 2px; }
+
+  .about-card {
+    background: var(--c-mustard); color: var(--ink);
+    border-radius: 18px; padding: 36px;
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--bg);
+  }
+  .about-card-logo {
+    display: block; height: 110px; width: auto;
+    margin: 0 auto 22px;
+  }
+  .about-card h3 { font-size: 28px; margin-bottom: 16px; }
+  .contact-logo {
+    display: block; height: 90px; width: auto;
+    margin: 0 0 22px;
+  }
+  .about-card .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 22px; padding-top: 22px; border-top: 1.5px solid var(--ink);
+  }
+  .stat .num { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 38px; line-height: 1; }
+  .stat .lbl { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; margin-top: 4px; display: block; }
+
+  /* ========== CONTACT ========== */
+  .contact { background: var(--bg-2); border-top: 2px solid var(--ink); }
+  .contact-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: start; }
+  .form {
+    background: var(--paper); border: 2px solid var(--ink); border-radius: 18px;
+    padding: 32px; box-shadow: 6px 6px 0 var(--ink);
+  }
+  .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+  .field label { font-weight: 700; font-size: 13px; letter-spacing: 0.06em; }
+  .field input, .field textarea, .field select {
+    border: 1.5px solid var(--ink); background: var(--bg);
+    padding: 12px 14px; border-radius: 10px; font: inherit; outline: none;
+    color: var(--ink);
+  }
+  .field input:focus, .field textarea:focus, .field select:focus { background: var(--paper); border-color: var(--c-coral); }
+  .field textarea { resize: vertical; min-height: 110px; }
+
+  .info-card {
+    background: var(--paper); border: 2px solid var(--ink);
+    border-radius: 18px; padding: 24px;
+    margin-bottom: 16px;
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+  .info-card .ico {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--c-coral); display: grid; place-items: center; flex-shrink: 0;
+    border: 1.5px solid var(--ink);
+  }
+  .info-card:nth-child(2) .ico { background: var(--c-mustard); }
+  .info-card:nth-child(3) .ico { background: var(--c-mint); }
+  .info-card h4 { font-family: "Inter", sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0; }
+  .info-card p { color: var(--ink-2); font-size: 14px; margin: 4px 0 0; }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: var(--ink); color: var(--bg);
+    padding: 64px 0 28px;
+    border-top: 2px solid var(--ink);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px;
+  }
+  .footer-logo {
+    height: 80px; width: auto; display: block;
+    filter: invert(1);
+    margin-bottom: 14px;
+  }
+  footer h5 { font-family: "Inter", sans-serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; color: var(--c-mustard); font-weight: 700; }
+  footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; font-size: 14px; }
+  footer a { color: rgba(249,243,227,.7); text-decoration: none; }
+  footer a:hover { color: var(--c-coral); }
+  .colophon {
+    max-width: 1240px; margin: 48px auto 0; padding: 22px 28px 0;
+    border-top: 1px solid rgba(249,243,227,.18);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: rgba(249,243,227,.55);
+  }
+
+  /* ========== Responsive ========== */
+  @media (max-width: 1080px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-art { height: 420px; }
+    .col-scenic, .col-america, .col-critters, .col-holiday { grid-column: span 12; }
+    .feature-grid, .about .container, .contact-grid { grid-template-columns: 1fr; }
+    .grid { grid-template-columns: repeat(3, 1fr); }
+    .nav-links { display: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .feature-covers { grid-template-columns: repeat(3, 1fr); }
+    .footer-grid { grid-template-columns: 1fr; }
+    section { padding: 64px 0; }
+    .hero { padding: 40px 0 8px; }
+    .float-1 { width: 180px; }
+    .float-2 { width: 200px; }
+    .float-3 { width: 180px; }
+    .logo-img { height: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== PARENT STRIP ========== -->
+<div style="background: #0e1116; color: rgba(249,243,227,0.85); font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.04em; padding: 7px 28px; text-align: center; border-bottom: 2px solid #0e1116;">
+  An imprint of
+  <a href="https://pagepathpublishinggroup.com/" style="color: #f7c14b; font-weight: 700; text-decoration: none; margin-left: 4px;">Page &amp; Path Publishing Group →</a>
+</div>
+
+<!-- ========== NAV ========== -->
+<header class="nav">
+  <div class="nav-row">
+    <a href="#" class="logo">
+      <img class="logo-img" src="logo.png" alt="">
+      <span class="logo-text">Dropthorn Press</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#collections">Collections</a>
+      <a href="#america">America 250</a>
+      <a href="#catalog">All books</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#catalog" class="pill">Shop the catalog</a>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="tag"><span class="dot"></span> Ultimate Bold and Easy Coloring Books</span>
+      <h1>Color what you <span class="swap">love</span>.</h1>
+      <p class="lede">Dropthorn Press creates books for people who love to color. Bold outlines, open spaces, and designs that work whether you reach for a crayon or a fine-tip marker.</p>
+      <div class="hero-cta">
+        <a href="#catalog" class="btn solid">Browse 22 books
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#america" class="btn">See the America 250 collection</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="float float-1">
+        <a class="cover k-mustard" href="https://www.amazon.com/dp/B0GQS27JTN" target="_blank" rel="noopener" style="width:100%; height:100%;">
+          <img class="cover-img" src="covers/B0GQS27JTN.jpg" alt="Country Roads cover" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+          <div class="ribbon">Scenic Routes</div>
+          <div class="title-block">
+            <svg class="art" viewBox="0 0 100 100">
+              <path d="M5 70 L25 40 L40 55 L60 25 L80 50 L95 35 L95 95 L5 95 Z" fill="none" stroke="#0e1116" stroke-width="3"/>
+              <path d="M30 95 V70 M55 95 V60 M75 95 V72" stroke="#0e1116" stroke-width="2.5"/>
+              <circle cx="78" cy="22" r="9" fill="none" stroke="#0e1116" stroke-width="3"/>
+            </svg>
+            <div class="t">Country<br>Roads</div>
+          </div>
+          <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
+        </a>
+      </div>
+      <div class="float float-2">
+        <a class="cover k-blue" href="https://www.amazon.com/dp/B0GR9J6FHV" target="_blank" rel="noopener" style="width:100%; height:100%;">
+          <img class="cover-img" src="covers/B0GR9J6FHV.jpg" alt="Star-Spangled Critters cover" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+          <div class="ribbon">America 250</div>
+          <div class="title-block">
+            <svg class="art" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="32" fill="none" stroke="#fff5d6" stroke-width="3"/>
+              <path d="M50 22 L55 42 L75 42 L59 54 L65 74 L50 62 L35 74 L41 54 L25 42 L45 42 Z" fill="none" stroke="#fff5d6" stroke-width="3"/>
+            </svg>
+            <div class="t">Star-<br>Spangled<br>Critters</div>
+          </div>
+          <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
+        </a>
+      </div>
+      <div class="float float-3">
+        <a class="cover k-mustard fit-contain" href="https://www.amazon.com/dp/B0F7HKWSNV" target="_blank" rel="noopener" style="width:100%; height:100%;">
+          <img class="cover-img" src="covers/B0F7HKWSNV.jpg" alt="Prairie Dreams cover" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+          <div class="ribbon">Scenic Routes</div>
+          <div class="title-block">
+            <svg class="art" viewBox="0 0 100 100">
+              <path d="M0 70 Q25 55 50 65 T100 60 L100 100 L0 100Z" fill="none" stroke="#0e1116" stroke-width="3"/>
+              <circle cx="78" cy="22" r="11" fill="none" stroke="#0e1116" stroke-width="3"/>
+            </svg>
+            <div class="t">Prairie<br>Dreams</div>
+          </div>
+          <div class="imprint"><span>Dropthorn</span><span>$7.99</span></div>
+        </a>
+      </div>
+
+      <svg class="scribble" style="left: 60%; top: -2%; width: 60px; height: 60px;" viewBox="0 0 60 60"><path d="M30 5 L33 24 L52 27 L33 30 L30 49 L27 30 L8 27 L27 24 Z" fill="#ff5a4d"/></svg>
+      <svg class="scribble" style="left: 42%; bottom: 18%; width: 70px; height: 30px;" viewBox="0 0 70 30"><path d="M3 15 Q12 3 21 15 T39 15 T57 15 T75 15" fill="none" stroke="#0e1116" stroke-width="2.5"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROMISE STRIP ========== -->
+<div class="promise">
+  <div class="promise-row wrap">
+    <span>Bold outlines</span>
+    <span>Open spaces</span>
+    <span>Single-sided, no bleed-through</span>
+    <span>Lays flat while you work</span>
+  </div>
+</div>
+
+<!-- ========== COLLECTIONS ========== -->
+<section id="collections" class="collections">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Browse by collection</div>
+        <h2>Pick a vibe.<br>Pick a page.</h2>
+      </div>
+      <p>Four collections, each built around a theme. Tap one to filter the catalog below.</p>
+    </div>
+    <div class="col-grid">
+      <a class="col-card col-scenic" href="#catalog" data-filter="scenic">
+        <div>
+          <h3>Scenic Routes</h3>
+          <p>Backroads, big skies, prairie nights. Landscapes worth lingering in.</p>
+        </div>
+        <span class="count">6 titles</span>
+        <svg class="col-art" width="220" height="160" viewBox="0 0 220 160"><path d="M0 110 L40 70 L70 95 L110 50 L150 85 L185 60 L220 90 L220 160 L0 160Z" fill="none" stroke="#0e1116" stroke-width="3"/><circle cx="178" cy="32" r="14" fill="none" stroke="#0e1116" stroke-width="3"/></svg>
+      </a>
+      <a class="col-card col-critters" href="#catalog" data-filter="critter">
+        <div>
+          <h3>Critters & Creatures</h3>
+          <p>Bunnies, dinos, and the occasional friendly farm goat.</p>
+        </div>
+        <span class="count">5 titles</span>
+        <svg class="col-art" width="190" height="160" viewBox="0 0 190 160"><circle cx="60" cy="100" r="36" fill="none" stroke="#0e1116" stroke-width="3"/><circle cx="120" cy="92" r="40" fill="none" stroke="#0e1116" stroke-width="3"/><circle cx="55" cy="92" r="4" fill="#0e1116"/><circle cx="115" cy="84" r="4" fill="#0e1116"/></svg>
+      </a>
+      <a class="col-card col-holiday" href="#catalog" data-filter="holiday">
+        <div>
+          <h3>Holiday Squad</h3>
+          <p>Christmas, Valentines, Easter. Seasonal pages with a punch of color.</p>
+        </div>
+        <span class="count">7 titles</span>
+        <svg class="col-art" width="190" height="160" viewBox="0 0 190 160"><path d="M95 22 L108 60 L150 64 L118 88 L130 130 L95 105 L60 130 L72 88 L40 64 L82 60 Z" fill="none" stroke="#0e1116" stroke-width="3"/></svg>
+      </a>
+      <a class="col-card col-america" href="#catalog" data-filter="spangle">
+        <div>
+          <span class="feature-stamp" style="margin-bottom: 12px; background: var(--c-red);">1776 to 2026</span>
+          <h3>America 250</h3>
+          <p>Patriotic critters for the U.S. semiquincentennial. Festive, kawaii, and historically inspired.</p>
+        </div>
+        <span class="count">4 titles</span>
+        <svg class="col-art" width="220" height="160" viewBox="0 0 220 160"><path d="M0 50 H220 M0 80 H220 M0 110 H220" stroke="#fff5d6" stroke-width="6" opacity=".4"/><path d="M40 30 L46 48 L66 48 L50 60 L56 78 L40 67 L24 78 L30 60 L14 48 L34 48 Z" fill="#fff5d6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== AMERICA 250 ========== -->
+<section id="america" class="feature">
+  <div class="wrap feature-grid">
+    <div>
+      <span class="feature-stamp">Limited collection · 1776 to 2026</span>
+      <h2>America 250.</h2>
+      <p>Three books built for the United States semiquincentennial. <strong>Star-Spangled Critters</strong>, <strong>Critters Make History</strong>, and <strong>Red, White &amp; Kawaii Critters</strong> celebrate 250 years through patriotic animal art that ranges from festive and fun to historically inspired to irresistibly kawaii.</p>
+      <div style="margin-top: 24px;">
+        <a href="#catalog" class="btn solid" data-filter="spangle">See all four titles
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="feature-covers">
+      <a class="cover k-blue" href="https://www.amazon.com/dp/B0GR9J6FHV" target="_blank" rel="noopener">
+        <img class="cover-img" src="covers/B0GR9J6FHV.jpg" alt="Star-Spangled Critters cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+        <div class="ribbon">America 250</div>
+        <div class="title-block">
+          <svg class="art" viewBox="0 0 100 100"><circle cx="50" cy="50" r="32" fill="none" stroke="#fff5d6" stroke-width="3"/><path d="M50 22 L56 42 L76 42 L60 54 L66 74 L50 62 L34 74 L40 54 L24 42 L44 42 Z" fill="none" stroke="#fff5d6" stroke-width="3"/></svg>
+          <div class="t">Star-Spangled Critters</div>
+        </div>
+        <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
+      </a>
+      <a class="cover k-red" href="https://www.amazon.com/dp/B0GR9NNKD2" target="_blank" rel="noopener">
+        <img class="cover-img" src="covers/B0GR9NNKD2.jpg" alt="Critters Make History cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+        <div class="ribbon">America 250</div>
+        <div class="title-block">
+          <svg class="art" viewBox="0 0 100 100"><rect x="20" y="30" width="60" height="40" fill="none" stroke="#fff5d6" stroke-width="3"/><path d="M20 40 H80 M20 50 H80 M20 60 H80" stroke="#fff5d6" stroke-width="3"/><rect x="20" y="30" width="22" height="22" fill="#fff5d6"/></svg>
+          <div class="t">Critters Make History</div>
+        </div>
+        <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
+      </a>
+      <a class="cover k-cream" href="https://www.amazon.com/dp/B0GQZ5RDX5" target="_blank" rel="noopener">
+        <img class="cover-img" src="covers/B0GQZ5RDX5.jpg" alt="Red, White and Kawaii Critters cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+        <div class="ribbon" style="background: var(--c-blue); color: var(--c-cream);">America 250</div>
+        <div class="title-block">
+          <svg class="art" viewBox="0 0 100 100"><circle cx="35" cy="58" r="22" fill="none" stroke="#0e1116" stroke-width="3"/><circle cx="65" cy="52" r="24" fill="none" stroke="#0e1116" stroke-width="3"/><circle cx="32" cy="52" r="2.5" fill="#0e1116"/><circle cx="62" cy="46" r="2.5" fill="#0e1116"/><path d="M28 64 q3 3 7 0 M58 58 q3 3 7 0" fill="none" stroke="#0e1116" stroke-width="2"/></svg>
+          <div class="t">Red, White &amp; Kawaii Critters</div>
+        </div>
+        <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CATALOG ========== -->
+<section id="catalog" class="catalog">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Every title, in print</div>
+        <h2>The whole shelf.</h2>
+      </div>
+      <p>Search by title or ISBN, or filter by collection.</p>
+    </div>
+
+    <div class="filterbar">
+      <label class="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e1116" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="searchBox" placeholder="Search titles, themes, ISBNs..." aria-label="Search books">
+      </label>
+      <button class="chip active" data-cat="all">All 22</button>
+      <button class="chip" data-cat="scenic">Scenic Routes</button>
+      <button class="chip" data-cat="critter">Critters</button>
+      <button class="chip" data-cat="holiday">Holiday</button>
+      <button class="chip" data-cat="spangle">America 250</button>
+    </div>
+
+    <div class="grid" id="bookGrid"></div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about" class="about">
+  <div class="wrap container">
+    <div>
+      <div class="kicker">About the press</div>
+      <h2>Coloring books and other small wonders.</h2>
+      <p>Dropthorn Press makes coloring books, activity books, and gentle little reads for kids of all ages, adults, and seniors. Most of our catalog belongs to the Ultimate Bold and Easy Coloring Books series, designed for a relaxing experience without the frustration of microscopic detail.</p>
+      <p>Themes range from nature and animals to seasonal celebrations and American history. We make books you can finish, dog-ear, and come back to.</p>
+      <div class="principles">
+        <p style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--c-mustard); margin: 4px 0 -4px;">What's in a Bold and Easy book</p>
+        <div class="principle">
+          <div class="num">01</div>
+          <div class="body">Bold outlines, open spaces<span>Thick lines and generous areas, no microscopic detail.</span></div>
+        </div>
+        <div class="principle">
+          <div class="num">02</div>
+          <div class="body">Single-sided printing<span>Color with whatever you want. No bleed-through.</span></div>
+        </div>
+        <div class="principle">
+          <div class="num">03</div>
+          <div class="body">Sized to lay flat<span>So your book stays open while your hand stays comfortable.</span></div>
+        </div>
+      </div>
+    </div>
+    <aside class="about-card">
+      <img class="about-card-logo" src="logo.png" alt="Dropthorn Press">
+      <h3>The Ultimate Bold and Easy Coloring Books series.</h3>
+      <p>One name on the spine, one promise on every page: a coloring book that gets out of your way.</p>
+      <div class="stats">
+        <div class="stat"><div class="num">22</div><span class="lbl">Titles</span></div>
+        <div class="stat"><div class="num">4</div><span class="lbl">Collections</span></div>
+        <div class="stat"><div class="num">2025</div><span class="lbl">Founded</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Get in touch</div>
+        <h2>Tell us what you need.</h2>
+      </div>
+      <p>Pitches, wholesale, press, or just a hello. We read everything.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="form" name="contact-dropthorn" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thank-you.html">
+        <input type="hidden" name="form-name" value="contact-dropthorn">
+        <p hidden><label>Skip this field if you are human: <input name="bot-field"></label></p>
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" placeholder="" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="" required>
+        </div>
+        <div class="field">
+          <label for="topic">What is this about</label>
+          <select id="topic" name="topic">
+            <option>General hello</option>
+            <option>Wholesale and bookstore inquiries</option>
+            <option>Press and interviews</option>
+            <option>Custom and bulk orders</option>
+            <option>Order question</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn solid" style="width: 100%; justify-content: center;">Send</button>
+      </form>
+      <div>
+        <img class="contact-logo" src="logo.png" alt="Dropthorn Press">
+        <div class="info-card">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e1116" stroke-width="2" stroke-linecap="round"><path d="M3 7 a2 2 0 0 1 2-2 h14 a2 2 0 0 1 2 2 v10 a2 2 0 0 1-2 2 H5 a2 2 0 0 1-2-2z"/><path d="m3 7 9 7 9-7"/></svg></span>
+          <div>
+            <h4>hello@dropthorn.com</h4>
+            <p>General inbox. We answer in 3 to 5 days.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e1116" stroke-width="2" stroke-linecap="round"><path d="M4 4 h13 l3 3 v13 H4z"/><path d="M8 14 h8 M8 10 h8"/></svg></span>
+          <div>
+            <h4>Wholesale & bookstores</h4>
+            <p>trade@dropthorn.com. We love bookstores, gift shops, and museum stores.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e1116" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12 h18 M12 3 a14 14 0 0 1 0 18 a14 14 0 0 1 0-18"/></svg></span>
+          <div>
+            <h4>Find us on Amazon</h4>
+            <p>Every title is in the Dropthorn Press Amazon storefront.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <img class="footer-logo" src="logo.png" alt="Dropthorn Press" onerror="this.style.display='none'">
+      <p style="font-size: 14px; color: rgba(249,243,227,.7); max-width: 320px;">Bold and easy coloring books for people who love to color.</p>
+    </div>
+    <div>
+      <h5>Browse</h5>
+      <ul>
+        <li><a href="#collections">All collections</a></li>
+        <li><a href="#america">America 250</a></li>
+        <li><a href="#catalog">Full catalog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>The press</h5>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Wholesale</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Find us</h5>
+      <ul>
+        <li><a href="https://www.amazon.com/" target="_blank" rel="noopener">Amazon storefront</a></li>
+        <li><a href="#contact">Newsletter</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="colophon">
+    <span>© 2026 Dropthorn Press. All books, all rights reserved.</span>
+    <span>The Ultimate Bold and Easy Coloring Books series.</span>
+  </div>
+</footer>
+
+<script>
+  // ========== Books ==========
+  const BOOKS = [
+    { t: "Starry Night",                                  d: "2025-04-25", p: 79,  pr: 9.99,  cat: "scenic",  theme: "k-blue",    isbn: "B0F6M25DX4",    url: "https://www.amazon.com/dp/B0F6M25DX4", art: "stars" },
+    { t: "Prairie Dreams",                                d: "2025-04-30", p: 57,  pr: 7.99,  cat: "scenic",  theme: "k-mustard", isbn: "B0F7HKWSNV",    url: "https://www.amazon.com/dp/B0F7HKWSNV", art: "prairie" },
+    { t: "Black Hills Bronco Adventures",                 d: "2025-05-24", p: 111, pr: 9.99,  cat: "scenic",  theme: "k-coral",   isbn: "9798999045409", url: "https://www.amazon.com/dp/B0FP4SJBHW", art: "horse" },
+    { t: "Prairie Trails",                                d: "2025-06-23", p: 87,  pr: 8.99,  cat: "scenic",  theme: "k-mint",    isbn: "B0FFN2D7T3",    url: "https://www.amazon.com/dp/B0FFN2D7T3", art: "prairie" },
+    { t: "Black Hills Bronco Adventures: Another Wild Coloring Book Tour Through South Dakota", d: "2025-07-21", p: 151, pr: 9.99,  cat: "scenic",  theme: "k-mustard", isbn: "9798999045423", url: "https://www.amazon.com/dp/B0FJS4TFML", art: "horse" },
+    { t: "Winter",                                        d: "2025-10-28", p: 91,  pr: 7.99,  cat: "holiday", theme: "k-blue",    isbn: "9781970516982", url: "https://www.amazon.com/dp/1970516984", art: "snow" },
+    { t: "Santa and Friends",                             d: "2025-10-29", p: 95,  pr: 7.99,  cat: "holiday", theme: "k-red",     isbn: "9781970516012", url: "https://www.amazon.com/dp/1970516011", art: "santa" },
+    { t: "Scenes of Christmas",                           d: "2025-10-29", p: 91,  pr: 7.99,  cat: "holiday", theme: "k-teal",    isbn: "9781970516005", url: "https://www.amazon.com/dp/1970516003", art: "tree" },
+    { t: "Christmas Critter Cuties",                      d: "2025-11-01", p: 95,  pr: 7.99,  cat: "holiday", theme: "k-pink",    isbn: "9781970516029", url: "https://www.amazon.com/dp/197051602X", art: "critter" },
+    { t: "Farm Friends",                                  d: "2025-11-04", p: 65,  pr: 7.99,  cat: "critter", theme: "k-mustard", isbn: "9781970516036", url: "https://www.amazon.com/dp/1970516038", art: "critter" },
+    { t: "Easter Bunny Cuties",                           d: "2026-01-09", p: 53,  pr: 6.99,  cat: "holiday", theme: "k-pink",    isbn: "9781970516081", url: "https://www.amazon.com/dp/1970516089", art: "bunny" },
+    { t: "Dino Pals",                                     d: "2026-01-13", p: 51,  pr: 6.99,  cat: "critter", theme: "k-mint",    isbn: "9781970516111", url: "https://www.amazon.com/dp/1970516119", art: "dino" },
+    { t: "Dino Pals Return",                              d: "2026-01-13", p: 47,  pr: 6.99,  cat: "critter", theme: "k-coral",   isbn: "9781970516128", url: "https://www.amazon.com/dp/1970516127", art: "dino" },
+    { t: "Happy Hearts",                                  d: "2026-01-18", p: 63,  pr: 6.99,  cat: "holiday", theme: "k-pink",    isbn: "9781970516142", url: "https://www.amazon.com/dp/1970516143", art: "heart" },
+    { t: "Valentine Friends",                             d: "2026-01-18", p: 55,  pr: 6.99,  cat: "holiday", theme: "k-coral",   isbn: "9781970516135", url: "https://www.amazon.com/dp/1970516135", art: "heart" },
+    { t: "Critter Games",                                 d: "2026-01-20", p: 53,  pr: 6.99,  cat: "critter", theme: "k-pink",    isbn: "9781970516166", url: "https://www.amazon.com/dp/197051616X", art: "critter" },
+    { t: "More Critter Games",                            d: "2026-01-27", p: 55,  pr: 6.99,  cat: "critter", theme: "k-mustard", isbn: "9781970516289", url: "https://www.amazon.com/dp/1970516259", art: "critter" },
+    { t: "Country Roads",                                 d: "2026-02-25", p: 85,  pr: 9.99,  cat: "scenic",  theme: "k-mustard", isbn: "9798249762278", url: "https://www.amazon.com/dp/B0GQS27JTN", art: "road" },
+    { t: "Red, White & Bloom",                            d: "2026-02-27", p: 83,  pr: 9.99,  cat: "spangle", theme: "k-red",     isbn: "9781970516289", url: "https://www.amazon.com/dp/1970516283", art: "bloom" },
+    { t: "Red, White & Kawaii Critters",                  d: "2026-03-01", p: 55,  pr: 9.99,  cat: "spangle", theme: "k-cream",   isbn: "9798250272377", url: "https://www.amazon.com/dp/B0GQZ5RDX5", art: "critter" },
+    { t: "Critters Make History",                         d: "2026-03-03", p: 57,  pr: 9.99,  cat: "spangle", theme: "k-blue",    isbn: "9798250541350", url: "https://www.amazon.com/dp/B0GR9NNKD2", art: "scroll" },
+    { t: "Star-Spangled Critters",                        d: "2026-03-03", p: 67,  pr: 9.99,  cat: "spangle", theme: "k-red",     isbn: "9798250532464", url: "https://www.amazon.com/dp/B0GR9J6FHV", art: "stars" }
+  ];
+
+  const ART = {
+    stars:   '<svg viewBox="0 0 100 100"><path d="M50 12 L56 36 L80 38 L60 52 L66 76 L50 62 L34 76 L40 52 L20 38 L44 36 Z" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="20" cy="20" r="2.5" fill="currentColor"/><circle cx="80" cy="80" r="2.5" fill="currentColor"/><circle cx="22" cy="78" r="2" fill="currentColor"/></svg>',
+    prairie: '<svg viewBox="0 0 100 100"><path d="M0 70 Q25 55 50 65 T100 60 L100 100 L0 100Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M0 82 Q30 75 60 82 T100 78" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="78" cy="22" r="11" fill="none" stroke="currentColor" stroke-width="3"/></svg>',
+    horse:   '<svg viewBox="0 0 100 100"><path d="M14 70 Q16 50 32 50 Q34 38 46 40 L52 32 L60 40 L74 44 L82 56 L78 64 L82 80 L72 80 L68 68 L40 70 L34 82 L24 82 Z" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="56" cy="44" r="2" fill="currentColor"/></svg>',
+    snow:    '<svg viewBox="0 0 100 100"><path d="M50 12 V88 M22 24 L78 76 M22 76 L78 24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M40 22 L50 12 L60 22 M40 78 L50 88 L60 78" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    santa:   '<svg viewBox="0 0 100 100"><path d="M30 40 a20 20 0 0 1 40 0 v6 a14 14 0 0 1 -28 0 z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M22 40 a28 28 0 0 1 56 0 q-4 -10 -28 -10 t-28 10 z" fill="currentColor"/><circle cx="78" cy="36" r="3" fill="currentColor"/><path d="M28 60 q22 14 44 0" fill="none" stroke="currentColor" stroke-width="3"/></svg>',
+    tree:    '<svg viewBox="0 0 100 100"><path d="M50 14 L70 38 L60 38 L78 60 L66 60 L84 84 L16 84 L34 60 L22 60 L40 38 L30 38 Z" fill="none" stroke="currentColor" stroke-width="3"/><rect x="44" y="84" width="12" height="8" fill="none" stroke="currentColor" stroke-width="3"/></svg>',
+    critter: '<svg viewBox="0 0 100 100"><circle cx="36" cy="56" r="22" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="66" cy="50" r="24" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="32" cy="50" r="2.5" fill="currentColor"/><circle cx="62" cy="44" r="2.5" fill="currentColor"/><path d="M28 60 q3 3 7 0 M58 54 q3 3 7 0" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    bunny:   '<svg viewBox="0 0 100 100"><ellipse cx="50" cy="68" rx="22" ry="20" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="40" cy="32" rx="6" ry="18" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="60" cy="32" rx="6" ry="18" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="44" cy="64" r="2" fill="currentColor"/><circle cx="56" cy="64" r="2" fill="currentColor"/><path d="M50 70 v4 M46 76 q4 4 8 0" fill="none" stroke="currentColor" stroke-width="2"/></svg>',
+    dragon:  '<svg viewBox="0 0 100 100"><path d="M14 64 Q14 44 36 44 Q42 28 60 36 L72 30 L70 42 L86 50 L78 60 L82 78 L60 76 Q48 80 36 76 Q24 80 14 64 Z" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="62" cy="44" r="2" fill="currentColor"/><path d="M68 28 L74 22 L78 30" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>',
+    dino:    '<svg viewBox="0 0 100 100"><path d="M12 70 Q14 50 32 50 L36 32 L42 38 L52 28 L62 38 Q80 38 84 56 Q90 56 90 64 Q86 72 74 72 L70 84 L60 84 L62 74 Q44 76 30 74 L26 84 L16 84 L20 72 Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M40 50 L42 46 L44 50 M48 48 L50 44 L52 48 M56 50 L58 46 L60 50" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="58" cy="44" r="2" fill="currentColor"/></svg>',
+    heart:   '<svg viewBox="0 0 100 100"><path d="M50 80 Q12 56 12 36 Q12 20 28 20 Q42 20 50 36 Q58 20 72 20 Q88 20 88 36 Q88 56 50 80 Z" fill="none" stroke="currentColor" stroke-width="3"/></svg>',
+    road:    '<svg viewBox="0 0 100 100"><path d="M40 90 L42 30 L58 30 L60 90 Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M50 36 V44 M50 50 V58 M50 64 V72" stroke="currentColor" stroke-width="3"/><path d="M14 72 Q30 60 50 64 T86 60" fill="none" stroke="currentColor" stroke-width="3"/></svg>',
+    bloom:   '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="50" cy="22" rx="8" ry="14" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="50" cy="78" rx="8" ry="14" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="22" cy="50" rx="14" ry="8" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="78" cy="50" rx="14" ry="8" fill="none" stroke="currentColor" stroke-width="3"/></svg>',
+    scroll:  '<svg viewBox="0 0 100 100"><rect x="22" y="22" width="56" height="56" fill="none" stroke="currentColor" stroke-width="3"/><path d="M30 36 H70 M30 46 H70 M30 56 H62 M30 66 H56" stroke="currentColor" stroke-width="2.5"/><circle cx="22" cy="22" r="4" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="78" cy="78" r="4" fill="none" stroke="currentColor" stroke-width="3"/></svg>'
+  };
+
+  const CAT_LABEL = {
+    scenic: "Scenic Routes", critter: "Critters", holiday: "Holiday", spangle: "America 250"
+  };
+
+  const grid = document.getElementById("bookGrid");
+  const search = document.getElementById("searchBox");
+  const chips = document.querySelectorAll(".chip");
+  let activeCat = "all";
+
+  function fmtDate(s) {
+    const d = new Date(s);
+    return d.toLocaleDateString(undefined, { month: "short", year: "numeric" });
+  }
+
+  function getAsin(url) {
+    if (!url) return null;
+    const m = url.match(/\/dp\/([A-Z0-9]+)/i) || url.match(/\/gp\/product\/([A-Z0-9]+)/i);
+    return m ? m[1] : null;
+  }
+  function coverPath(asin) {
+    return `covers/${asin}.jpg`;
+  }
+
+  // ASINs that fill their box cleanly with object-fit: cover.
+  // Everything else uses object-fit: contain on a white background.
+  const FULL_BLEED = new Set([
+    "B0F6M25DX4", // Starry Night
+    "B0GQS27JTN", // Country Roads
+    "B0GR9J6FHV", // Star-Spangled Critters
+    "B0GR9NNKD2", // Critters Make History
+    "B0GQZ5RDX5", // Red, White & Kawaii Critters
+    "1970516283"  // Red, White & Bloom
+  ]);
+
+  function render() {
+    const q = search.value.trim().toLowerCase();
+    const items = BOOKS
+      .filter(b => activeCat === "all" || b.cat === activeCat)
+      .filter(b => !q || b.t.toLowerCase().includes(q) || b.isbn.toLowerCase().includes(q) || CAT_LABEL[b.cat].toLowerCase().includes(q))
+      .sort((a, b) => a.t.localeCompare(b.t, undefined, { sensitivity: "base" }));
+
+    if (!items.length) {
+      grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--ink-2); border: 2px dashed var(--ink); border-radius: 14px;">No titles match. Try a different word.</div>`;
+      return;
+    }
+
+    grid.innerHTML = items.map(b => {
+      const asin = getAsin(b.url);
+      const fitClass = (asin && !FULL_BLEED.has(asin)) ? "fit-contain" : "";
+      const img = asin
+        ? `<img class="cover-img" src="${coverPath(asin)}" alt="${b.t} cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">`
+        : "";
+      return `
+      <article class="book">
+        <a class="cover ${b.theme} ${fitClass}" ${b.url ? `href="${b.url}" target="_blank" rel="noopener"` : ""} aria-label="${b.t}">
+          ${img}
+          <div class="ribbon">${CAT_LABEL[b.cat]}</div>
+          <div class="title-block">
+            ${ART[b.art] || ""}
+            <div class="t">${b.t}</div>
+          </div>
+          <div class="imprint"><span>Dropthorn</span><span>$${b.pr.toFixed(2)}</span></div>
+        </a>
+        <h4>${b.t}</h4>
+        <div class="b-meta"><span>${fmtDate(b.d)} · ${b.p} pages</span><span class="b-price">$${b.pr.toFixed(2)}</span></div>
+      </article>
+    `;
+    }).join("");
+
+    grid.querySelectorAll(".title-block svg").forEach(s => s.classList.add("art"));
+  }
+
+  chips.forEach(c => {
+    c.addEventListener("click", () => {
+      chips.forEach(x => x.classList.remove("active"));
+      c.classList.add("active");
+      activeCat = c.dataset.cat;
+      render();
+    });
+  });
+  search.addEventListener("input", render);
+
+  document.querySelectorAll("[data-filter]").forEach(el => {
+    el.addEventListener("click", () => {
+      const cat = el.dataset.filter;
+      const chip = document.querySelector(`.chip[data-cat="${cat}"]`);
+      if (chip) chip.click();
+    });
+  });
+
+  render();
+</script>
+</body>
+</html>

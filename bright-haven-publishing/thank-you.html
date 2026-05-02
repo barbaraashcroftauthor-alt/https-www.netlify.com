@@ -1,269 +1,344 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thank You — Bright Haven Publishing</title>
-<meta name="description" content="Thank you for reaching out to Bright Haven Publishing. We will be in touch soon.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thank You - Page & Path Publishing Group</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bh-cream:        #f5ecd7;
-  --bh-cream-light:  #faf3e3;
-  --bh-cream-dark:   #e6d5af;
-  --bh-olive:        #3d4023;
-  --bh-olive-light:  #5a5e3a;
-  --bh-gold:         #c9a05c;
-  --bh-gold-light:   #e0c285;
-  --bh-charcoal:     #1a1a14;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: var(--bh-cream-light);
-  color: var(--bh-olive);
-  line-height: 1.65;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-img, svg { display: block; }
-a { color: inherit; }
+  :root {
+    --cream: #fffdf8;
+    --charcoal: #2a2a26;
+    --sage: #5ba398;
+    --sage-light: #7db8aa;
+    --gray-dark: #4a4a44;
+    --gray-light: #e8e4d8;
+    --accent: #d4b86a;
+  }
 
-/* ============ HEADER ============ */
-header.site {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(26, 26, 20, 0.96);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(201, 160, 92, 0.18);
-}
-.nav-inner {
-  max-width: 1240px; margin: 0 auto;
-  padding: 1rem 2rem;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.brand {
-  display: flex; align-items: center; gap: 0.85rem;
-  text-decoration: none;
-  color: var(--bh-gold-light);
-}
-.brand .mark { width: 38px; height: 38px; color: var(--bh-gold-light); }
-.brand-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 600;
-  font-size: 1.15rem;
-  letter-spacing: 0.16em;
-}
-nav ul { list-style: none; display: flex; gap: 2.25rem; }
-nav a {
-  color: var(--bh-cream);
-  text-decoration: none;
-  font-size: 0.82rem;
-  font-weight: 400;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  transition: color 0.25s ease;
-}
-nav a:hover { color: var(--bh-gold-light); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
 
-/* ============ MAIN ============ */
-main {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 2rem;
-  background: radial-gradient(ellipse at center top, var(--bh-cream) 0%, var(--bh-cream-light) 70%);
-}
-.thanks {
-  max-width: 640px;
-  text-align: center;
-}
-.thanks-mark {
-  width: 110px; height: 110px;
-  margin: 0 auto 2rem;
-  color: var(--bh-gold);
-}
-.eyebrow {
-  font-size: 0.74rem;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--bh-gold);
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-.thanks h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
-  font-weight: 500;
-  color: var(--bh-olive);
-  line-height: 1.1;
-  letter-spacing: 0.04em;
-}
-.divider {
-  width: 60px; height: 1px;
-  background: var(--bh-gold);
-  margin: 1.75rem auto 2rem;
-  opacity: 0.7;
-}
-.thanks p.message {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
-  line-height: 1.6;
-  color: var(--bh-olive);
-  font-weight: 400;
-  margin-bottom: 0.75rem;
-}
-.thanks p.subtle {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--bh-olive-light);
-  margin-bottom: 2.5rem;
-}
-.home-btn {
-  display: inline-block;
-  background: var(--bh-olive);
-  color: var(--bh-cream-light);
-  padding: 0.95rem 2rem;
-  text-decoration: none;
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 500;
-  border-radius: 2px;
-  transition: background 0.25s ease, color 0.25s ease;
-  font-family: inherit;
-}
-.home-btn:hover { background: var(--bh-gold); color: var(--bh-charcoal); }
-.signature {
-  margin-top: 3rem;
-  letter-spacing: 0.4em;
-  font-size: 0.78rem;
-  color: var(--bh-gold);
-  text-transform: uppercase;
-  font-weight: 500;
-}
+  h1, h2, h3 {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0;
+  }
 
-/* ============ FOOTER ============ */
-footer {
-  background: var(--bh-charcoal);
-  color: var(--bh-cream-dark);
-  padding: 4rem 2rem 2rem;
-  text-align: center;
-}
-.footer-mark { width: 56px; height: 56px; margin: 0 auto 1rem; color: var(--bh-gold-light); }
-.footer-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
-  letter-spacing: 0.28em;
-  color: var(--bh-gold-light);
-  margin-bottom: 0.6rem;
-  font-weight: 500;
-}
-.footer-tagline {
-  font-size: 0.72rem;
-  letter-spacing: 0.4em;
-  color: var(--bh-gold);
-  margin-bottom: 2.5rem;
-  text-transform: uppercase;
-}
-.footer-copy {
-  font-size: 0.72rem;
-  color: var(--bh-cream-dark);
-  opacity: 0.65;
-  border-top: 1px solid rgba(201, 160, 92, 0.15);
-  padding-top: 1.75rem;
-  max-width: 700px;
-  margin: 0 auto;
-  letter-spacing: 0.05em;
-}
+  a { color: inherit; text-decoration: none; }
+  img, svg { display: block; }
 
-/* ============ RESPONSIVE ============ */
-@media (max-width: 720px) {
-  nav ul { gap: 1.1rem; }
-  nav a { font-size: 0.72rem; letter-spacing: 0.12em; }
-  .nav-inner { padding: 0.85rem 1.25rem; }
-  .brand-name { font-size: 0.95rem; letter-spacing: 0.12em; }
-  main { padding: 3.5rem 1.25rem; }
-  .thanks-mark { width: 85px; height: 85px; }
-  .thanks p.message { font-size: 1.15rem; }
-}
-@media (max-width: 420px) {
-  nav ul { gap: 0.85rem; }
-  .brand .mark { width: 32px; height: 32px; }
-}
+  /* ===== HEADER ===== */
+  header {
+    background: var(--charcoal);
+    border-bottom: 1px solid var(--sage);
+    padding: 1.25rem 2rem;
+  }
+
+  .nav-row {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--accent);
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sage);
+    color: var(--cream);
+    border-radius: 2px;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  /* ===== MAIN ===== */
+  .thank-you-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+
+  .checkmark {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 2rem;
+    background: var(--sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 1rem;
+    color: var(--sage);
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--gray-dark);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .details {
+    background: white;
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: left;
+  }
+
+  .detail-item {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  .detail-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .detail-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .detail-text {
+    color: var(--gray-dark);
+  }
+
+  .next-steps {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--cream);
+    border-left: 3px solid var(--sage);
+    border-radius: 2px;
+    text-align: left;
+  }
+
+  .next-steps h3 {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    color: var(--charcoal);
+  }
+
+  .next-steps ol {
+    list-style-position: inside;
+    color: var(--gray-dark);
+    line-height: 1.9;
+  }
+
+  .next-steps li {
+    margin-bottom: 0.75rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.25s;
+    cursor: pointer;
+    border: 2px solid transparent;
+    margin-top: 1.5rem;
+  }
+
+  .btn-primary {
+    background: var(--sage);
+    color: white;
+    border-color: var(--sage);
+  }
+
+  .btn-primary:hover {
+    background: var(--sage-light);
+    border-color: var(--sage-light);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--charcoal);
+    color: var(--sage-light);
+    padding: 3rem 2rem 2rem;
+    border-top: 1px solid var(--sage);
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 4rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .footer-brand .mark {
+    width: 28px;
+    height: 28px;
+    background: var(--sage);
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .footer-links {
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: var(--sage-light);
+    transition: color 0.25s;
+  }
+
+  .footer-links a:hover {
+    color: var(--accent);
+  }
+
+  .footer-copy {
+    color: rgba(155, 179, 168, 0.65);
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(107, 142, 127, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .thank-you-container { padding: 4rem 1.5rem; }
+    header { padding: 1rem 1.5rem; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ============ LOGO TEMPLATE (reusable) ============ -->
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-  <symbol id="bh-mark" viewBox="0 0 100 100">
-    <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="50" y1="42" x2="50" y2="14"/>
-      <line x1="40.5" y1="43.5" x2="33" y2="17"/>
-      <line x1="59.5" y1="43.5" x2="67" y2="17"/>
-      <line x1="32.5" y1="47" x2="18" y2="26"/>
-      <line x1="67.5" y1="47" x2="82" y2="26"/>
-      <line x1="26.5" y1="52" x2="9" y2="40"/>
-      <line x1="73.5" y1="52" x2="91" y2="40"/>
-      <path d="M12 70 Q 50 55 50 50"/>
-      <path d="M88 70 Q 50 55 50 50"/>
-      <line x1="9" y1="72" x2="91" y2="72"/>
-    </g>
-  </symbol>
-</svg>
-
-<!-- ============ HEADER ============ -->
-<header class="site">
-  <div class="nav-inner">
-    <a href="index.html" class="brand">
-      <svg class="mark"><use href="#bh-mark"/></svg>
-      <span class="brand-name">BRIGHT HAVEN</span>
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="nav-row">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+          <defs>
+            <linearGradient id="pathGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#9eb3a8;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#6b8e7f;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <path d="M 20 15 L 50 15 L 50 85 L 20 85 Q 18 50 20 15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 50 15 L 80 15 L 80 85 L 50 85 Q 52 50 50 15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M 35 35 Q 50 45 65 38 Q 70 35 75 42" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+        </svg>
+      </div>
+      <span>Page & Path</span>
     </a>
-    <nav>
-      <ul>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#books">Books</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </nav>
   </div>
 </header>
 
-<!-- ============ MAIN ============ -->
-<main>
-  <div class="thanks">
-    <svg class="thanks-mark"><use href="#bh-mark"/></svg>
-    <p class="eyebrow">Message Received</p>
-    <h1>Thank You</h1>
-    <div class="divider"></div>
-    <p class="message">Your note has reached us. We read every message with care and will be in touch soon.</p>
-    <p class="subtle">In the meantime, may your day hold a moment of stillness.</p>
-    <a class="home-btn" href="index.html">Return Home</a>
-    <div class="signature">Reflect &middot; Renew &middot; Create</div>
-  </div>
-</main>
+<!-- ===== MAIN ===== -->
+<div class="thank-you-container">
+  <div class="checkmark">✓</div>
 
-<!-- ============ FOOTER ============ -->
+  <h1>Thank You!</h1>
+  <p class="subtitle">We've received your message and appreciate you reaching out to<br>Page &amp; Path Publishing Group.</p>
+
+  <div class="details">
+    <div class="detail-item">
+      <div class="detail-label">What Happens Next</div>
+      <div class="detail-text">We'll review your message and get back to you within 2-3 business days. If your inquiry is specific to one of our imprints, we may forward it directly to them.</div>
+    </div>
+  </div>
+
+  <div class="next-steps">
+    <h3>In the Meantime</h3>
+    <ol>
+      <li>Explore our imprints - each has its own unique catalog and approach</li>
+      <li>Visit the imprint websites for the latest releases and collections</li>
+      <li>Follow us on social media for updates and new announcements</li>
+    </ol>
+  </div>
+
+  <div style="color: var(--gray-dark); margin: 1.5rem 0; line-height: 1.8;">
+    <p>Have questions about a specific imprint? Visit their site directly:</p>
+    <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.9rem;">
+      <a href="neural-nexus-press/" style="color: var(--sage); font-weight: 600;">Neural Nexus Press</a>
+      <a href="dropthorn-press/" style="color: var(--sage); font-weight: 600;">Dropthorn Press</a>
+      <a href="bright-haven-publishing/" style="color: var(--sage); font-weight: 600;">Bright Haven Publishing</a>
+    </div>
+  </div>
+
+  <a href="index.html" class="btn btn-primary">Back to Page & Path</a>
+</div>
+
+<!-- ===== FOOTER ===== -->
 <footer>
-  <svg class="footer-mark"><use href="#bh-mark"/></svg>
-  <div class="footer-name">BRIGHT HAVEN PUBLISHING</div>
-  <div class="footer-tagline">Reflect &middot; Renew &middot; Create</div>
+  <div class="footer-brand">
+    <div class="mark">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+        <path d="M 20 15 L 50 15 L 50 85 L 20 85 Q 18 50 20 15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 50 15 L 80 15 L 80 85 L 50 85 Q 52 50 50 15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 35 35 Q 50 45 65 38 Q 70 35 75 42" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+      </svg>
+    </div>
+    <span>Page & Path Publishing Group</span>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#imprints">Imprints</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
   <div class="footer-copy">
-    &copy; <span id="year"></span> Bright Haven Publishing. All rights reserved. Books are available through Amazon and select retailers.
+    &copy; 2026 Page & Path Publishing Group. All rights reserved.
   </div>
 </footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 
 </body>
 </html>
