@@ -349,6 +349,9 @@
   .book { display: flex; flex-direction: column; gap: 12px; }
   .book .cover { aspect-ratio: 2/3; }
   .book .cover:hover { box-shadow: 8px 8px 0 var(--ink); transform: translate(-2px,-2px); }
+  /* Square trims (8.5x8.5): square box, bottom-aligned in the 2:3 slot so titles stay in line */
+  .book .cover.square { aspect-ratio: 1/1; margin-top: 50%; }
+  .feature-covers .cover.square { aspect-ratio: 1/1; align-self: end; }
   .book h4 {
     font-family: "Inter", sans-serif; font-weight: 700; font-size: 16px; line-height: 1.25;
     letter-spacing: 0; margin: 0;
@@ -659,7 +662,7 @@
       </div>
     </div>
     <div class="feature-covers">
-      <a class="cover k-blue" href="https://www.amazon.com/dp/1970516518" target="_blank" rel="noopener">
+      <a class="cover k-blue square" href="https://www.amazon.com/dp/1970516518" target="_blank" rel="noopener">
         <img class="cover-img" src="covers/1970516518.jpg" alt="Kawaii Critters: Cozy Americana cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
         <div class="ribbon">America 250</div>
         <div class="title-block">
@@ -668,7 +671,7 @@
         </div>
         <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
       </a>
-      <a class="cover k-cream" href="https://www.amazon.com/dp/B0GQZ5RDX5" target="_blank" rel="noopener">
+      <a class="cover k-cream square" href="https://www.amazon.com/dp/B0GQZ5RDX5" target="_blank" rel="noopener">
         <img class="cover-img" src="covers/B0GQZ5RDX5.jpg" alt="Red, White and Kawaii Critters cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
         <div class="ribbon" style="background: var(--c-blue); color: var(--c-cream);">America 250</div>
         <div class="title-block">
@@ -677,7 +680,7 @@
         </div>
         <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
       </a>
-      <a class="cover k-red" href="https://www.amazon.com/dp/B0GR9J6FHV" target="_blank" rel="noopener">
+      <a class="cover k-red square" href="https://www.amazon.com/dp/B0GR9J6FHV" target="_blank" rel="noopener">
         <img class="cover-img" src="covers/B0GR9J6FHV.jpg" alt="Star-Spangled Critters cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
         <div class="ribbon">America 250</div>
         <div class="title-block">
@@ -686,7 +689,7 @@
         </div>
         <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
       </a>
-      <a class="cover k-red" href="https://www.amazon.com/dp/B0GR9NNKD2" target="_blank" rel="noopener">
+      <a class="cover k-red square" href="https://www.amazon.com/dp/B0GR9NNKD2" target="_blank" rel="noopener">
         <img class="cover-img" src="covers/B0GR9NNKD2.jpg" alt="Critters Make History cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
         <div class="ribbon">America 250</div>
         <div class="title-block">
@@ -970,6 +973,28 @@
     "1970516410"  // Home Sweet Home
   ]);
 
+  // Square-trim books (8.5x8.5). These get a square cover box.
+  const SQUARE = new Set([
+    "1970516003", // Scenes of Christmas
+    "1970516011", // Santa and Friends
+    "197051602X", // Christmas Critter Cuties
+    "1970516038", // Farm Friends
+    "1970516089", // Easter Bunny Cuties
+    "1970516119", // Dino Pals
+    "1970516127", // Dino Pals Return
+    "1970516135", // Valentine Friends
+    "1970516143", // Happy Hearts
+    "197051616X", // Critter Games
+    "1970516259", // More Critter Games
+    "1970516518", // Kawaii Critters: A Bold and Easy Cozy Americana Coloring Book
+    "1970516984", // Winter
+    "B0FJS4TFML", // Black Hills Bronco Adventures: Another Wild Coloring Book Tour Through South Dakota
+    "B0FP4SJBHW", // Black Hills Bronco Adventures
+    "B0GQZ5RDX5", // Red, White & Kawaii Critters
+    "B0GR9J6FHV", // Star-Spangled Critters
+    "B0GR9NNKD2"  // Critters Make History
+  ]);
+
   function render() {
     const q = search.value.trim().toLowerCase();
     const items = BOOKS
@@ -984,7 +1009,7 @@
 
     grid.innerHTML = items.map(b => {
       const asin = getAsin(b.url);
-      const fitClass = (asin && !FULL_BLEED.has(asin)) ? "fit-contain" : "";
+      const fitClass = (asin && SQUARE.has(asin)) ? "square" : ((asin && !FULL_BLEED.has(asin)) ? "fit-contain" : "");
       const img = asin
         ? `<img class="cover-img" src="${coverPath(asin)}" alt="${b.t} cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">`
         : "";

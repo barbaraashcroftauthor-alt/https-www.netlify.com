@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page & Path Publishing Group: ten indie imprints, one love of paper</title>
-<meta name="description" content="Page & Path Publishing Group is home to ten small, distinct imprints: Dropthorn Press, Neural Nexus Press, Bright Haven Publishing, Aldridge Americana, PathJournal Publishing, Practical Stack, Wexleyn, Column & Row, Vellamere, and Kettlewick. Books made with care, designed to be read, and worth coming back to.">
+<title>Page & Path Publishing Group: six indie imprints, one love of paper</title>
+<meta name="description" content="Page & Path Publishing Group is home to six small, distinct imprints: Dropthorn Press, Neural Nexus Press, Bright Haven Publishing, Aldridge Americana, PathJournal Publishing, and Dragon & Ink Studio. Books made with care, designed to be read, and worth coming back to.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -34,6 +34,8 @@
     --aldr-cream: #e4ecf2;
     --pj-plum: #7a4d6e;
     --pj-cream: #f3e8ee;
+    --dragon-ink: #6b1f24;
+    --dragon-cream: #f6ece4;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -219,6 +221,7 @@
   .card-haven  { --accent: var(--haven-olive); --accent-soft: var(--haven-cream); }
   .card-aldr   { --accent: var(--aldr-navy);  --accent-soft: var(--aldr-cream); }
   .card-pj     { --accent: var(--pj-plum);    --accent-soft: var(--pj-cream); }
+  .card-dragon { --accent: var(--dragon-ink); --accent-soft: var(--dragon-cream); }
 
   .imprint-mark {
     width: 56px; height: 56px;
@@ -268,6 +271,7 @@
     background: white;
     transition: transform 0.2s;
   }
+  .cover-row img.sq { aspect-ratio: 1 / 1; align-self: end; }
   .cover-row img:nth-child(2) { transform: rotate(-1.5deg); }
   .cover-row img:nth-child(3) { transform: rotate(1deg); }
   .imprint-card:hover .cover-row img { transform: rotate(0); }
@@ -568,8 +572,8 @@
       <p class="imprint-tag">a quiet place to land.</p>
       <p class="imprint-blurb">Devotionals, scripture coloring, and reflection journals for moments that ask for stillness, beautiful design, meaningful pages, made to come back to.</p>
       <div class="cover-row">
-        <img src="https://brighthavenpublishing.xyz/covers/peaceful-reflections-new-testament.jpg" alt="Peaceful Reflections: New Testament" loading="lazy">
-        <img src="https://brighthavenpublishing.xyz/covers/new-testament.jpg" alt="My Journey Through the New Testament" loading="lazy">
+        <img class="sq" src="https://brighthavenpublishing.xyz/covers/peaceful-reflections-new-testament.jpg" alt="Peaceful Reflections: New Testament" loading="lazy">
+        <img class="sq" src="https://brighthavenpublishing.xyz/covers/new-testament.jpg" alt="My Journey Through the New Testament" loading="lazy">
         <img src="https://brighthavenpublishing.xyz/covers/she-is-strong.jpg" alt="She is Strong" loading="lazy">
         <img src="https://brighthavenpublishing.xyz/covers/temples-us-complete.jpg" alt="Temples of the United States" loading="lazy">
       </div>
@@ -606,7 +610,7 @@
       </div>
       <h3 class="imprint-name">Aldridge Americana</h3>
       <p class="imprint-tag">American history, reexamined.</p>
-      <p class="imprint-blurb">Nonfiction American history for the United States semiquincentennial and the long American story it commemorates. First titles arriving 2026.</p>
+      <p class="imprint-blurb">Nonfiction American history for the United States semiquincentennial and the long American story it commemorates, starting with The Hidden Stories Behind America's Most Iconic Symbols.</p>
       <div class="cover-row" style="grid-template-columns: 1fr; place-items: center; padding: 1.5rem;">
         <img src="https://aldridgeamericana.com/covers/1970516291.jpg" alt="The Hidden Stories Behind America's Most Iconic Symbols" loading="lazy" style="width: 50%; max-width: 140px; aspect-ratio: 2/3;">
       </div>
@@ -616,13 +620,34 @@
       </div>
     </a>
 
+    <!-- ===== Dragon & Ink Studio (no website yet; links to Amazon) ===== -->
+    <a class="imprint-card card-dragon" href="https://www.amazon.com/dp/1970516100" target="_blank" rel="noopener">
+      <div class="imprint-mark" style="background: var(--dragon-cream); display: grid; place-items: center;">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="Dragon &amp; Ink Studio">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#6b1f24" stroke-width="3"/>
+          <path d="M50 22 C40 38 34 48 34 58 a16 16 0 0 0 32 0 C66 48 60 38 50 22 Z" fill="#6b1f24"/>
+          <path d="M50 44 C46 51 44 55 44 59 a6 6 0 0 0 12 0 C56 55 54 51 50 44 Z" fill="#f6ece4"/>
+        </svg>
+      </div>
+      <h3 class="imprint-name">Dragon &amp; Ink Studio</h3>
+      <p class="imprint-tag">myth and legend, in fine lines.</p>
+      <p class="imprint-blurb">Intricate fantasy coloring books for teens and adults, starting with The Dragon Codex: 52 detailed dragons drawn from myth and legend.</p>
+      <div class="cover-row" style="grid-template-columns: 1fr; place-items: center; padding: 1.5rem;">
+        <img src="covers/1970516100.jpg" alt="The Dragon Codex" loading="lazy" style="width: 70%; max-width: 190px; aspect-ratio: 1/1;">
+      </div>
+      <div class="visit-line">
+        <span>The Dragon Codex on Amazon</span>
+        <span class="arrow">→</span>
+      </div>
+    </a>
+
   </div>
 </section>
 
 <!-- ============ WELCOME (after the books) ============ -->
 <section class="hello">
-  <h1>Ten little presses,<br><em>one love of paper.</em></h1>
-  <p>We make books we'd want on our own shelves: puzzles to solve, journals to scribble in, coloring pages to fill, scripture to sit with, and American history to learn from. Ten imprints, plenty to flip through.</p>
+  <h1>Six little presses,<br><em>one love of paper.</em></h1>
+  <p>We make books we'd want on our own shelves: puzzles to solve, journals to scribble in, coloring pages to fill, scripture to sit with, and American history to learn from. Six imprints, plenty to flip through.</p>
 </section>
 
 <!-- ============ ABOUT ============ -->
@@ -631,10 +656,10 @@
     <div>
       <span class="about-eyebrow">a little about us</span>
       <h2>We're a small group <em>who really like books.</em></h2>
-      <p>Page &amp; Path Publishing Group is the parent of ten indie imprints. We're not big. We don't try to be. We pick our covers, watch our paper stock, and obsess about how a book actually feels when you sit with it.</p>
+      <p>Page &amp; Path Publishing Group is the parent of six indie imprints. We're not big. We don't try to be. We pick our covers, watch our paper stock, and obsess about how a book actually feels when you sit with it.</p>
       <p>Each imprint has its own audience and its own voice. What they share is this: every title has been thought about by an actual person who wanted it to exist.</p>
       <div class="stat-strip">
-        <div class="stat"><div class="stat-num">10</div><div class="stat-label">Imprints</div></div>
+        <div class="stat"><div class="stat-num">6</div><div class="stat-label">Imprints</div></div>
         <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Titles</div></div>
         <div class="stat"><div class="stat-num">2025</div><div class="stat-label">Founded</div></div>
       </div>
@@ -708,7 +733,7 @@
       </nav>
     </div>
     <div class="footer-copy">
-      &copy; 2026 Page &amp; Path Publishing Group. Home to Dropthorn Press, Neural Nexus Press, Bright Haven Publishing, Aldridge Americana, PathJournal Publishing, Practical Stack, Wexleyn, Column &amp; Row, Vellamere, and Kettlewick.
+      &copy; 2026 Page &amp; Path Publishing Group. Home to Dropthorn Press, Neural Nexus Press, Bright Haven Publishing, Aldridge Americana, PathJournal Publishing, and Dragon &amp; Ink Studio.
     </div>
   </div>
 </footer>
