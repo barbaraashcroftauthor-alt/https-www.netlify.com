@@ -285,7 +285,7 @@
   .col-fair .count { background: var(--c-cream); color: var(--c-coral); }
   .col-fair p { color: var(--c-cream); opacity: .92; }
 
-  /* ========== FEATURED: AMERICA 250 ========== */
+  /* ========== FEATURED COLLECTION (Vintage Americana) ========== */
   .feature {
     background: var(--bg-2);
     border-bottom: 2px solid var(--ink);
@@ -309,11 +309,8 @@
     column-gap: 16px; row-gap: 22px;
   }
   .feature-covers .cover { aspect-ratio: 2/3; }
-  .feature-covers .cover:nth-child(1) { grid-column: 1 / span 2; }
-  .feature-covers .cover:nth-child(2) { grid-column: 3 / span 2; transform: translateY(14px); }
-  .feature-covers .cover:nth-child(3) { grid-column: 5 / span 2; }
-  .feature-covers .cover:nth-child(4) { grid-column: 2 / span 2; }
-  .feature-covers .cover:nth-child(5) { grid-column: 4 / span 2; }
+  .feature-covers .cover { grid-column: span 2; }
+  .feature-covers .cover:nth-child(3n+2) { transform: translateY(14px); }
 
   /* ========== CATALOG ========== */
   .catalog { background: var(--bg); }
@@ -475,11 +472,8 @@
   @media (max-width: 640px) {
     .grid { grid-template-columns: repeat(2, 1fr); }
     .feature-covers { grid-template-columns: repeat(3, 1fr); column-gap: 12px; row-gap: 16px; }
-    .feature-covers .cover:nth-child(1),
-    .feature-covers .cover:nth-child(2),
-    .feature-covers .cover:nth-child(3),
-    .feature-covers .cover:nth-child(4),
-    .feature-covers .cover:nth-child(5) { grid-column: span 1; transform: none; }
+    .feature-covers .cover,
+    .feature-covers .cover:nth-child(3n+2) { grid-column: span 1; transform: none; }
     .footer-grid { grid-template-columns: 1fr; }
     section { padding: 64px 0; }
     .hero { padding: 40px 0 8px; }
@@ -507,7 +501,7 @@
     </a>
     <nav class="nav-links">
       <a href="#collections">Collections</a>
-      <a href="#america">America 250</a>
+      <a href="#vintage">Vintage Americana</a>
       <a href="#catalog">All books</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -527,7 +521,7 @@
         <a href="#catalog" class="btn solid">Browse 29 books
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
-        <a href="#catalog" class="btn" data-filter="fair">See the County Fair collection</a>
+        <a href="#catalog" class="btn" data-filter="fair">See the Vintage Americana collection</a>
       </div>
     </div>
     <div class="hero-art" aria-hidden="true">
@@ -608,7 +602,7 @@
           <h3>Scenic Routes</h3>
           <p>Backroads, big skies, prairie nights. Landscapes worth lingering in.</p>
         </div>
-        <span class="count">7 titles</span>
+        <span class="count">6 titles</span>
         <svg class="col-art" width="220" height="160" viewBox="0 0 220 160"><path d="M0 110 L40 70 L70 95 L110 50 L150 85 L185 60 L220 90 L220 160 L0 160Z" fill="none" stroke="#0e1116" stroke-width="3"/><circle cx="178" cy="32" r="14" fill="none" stroke="#0e1116" stroke-width="3"/></svg>
       </a>
       <a class="col-card col-critters" href="#catalog" data-filter="critter">
@@ -624,7 +618,7 @@
           <h3>Holiday Squad</h3>
           <p>Christmas, Valentines, Easter. Seasonal pages with a punch of color.</p>
         </div>
-        <span class="count">8 titles</span>
+        <span class="count">7 titles</span>
         <svg class="col-art" width="190" height="160" viewBox="0 0 190 160"><path d="M95 22 L108 60 L150 64 L118 88 L130 130 L95 105 L60 130 L72 88 L40 64 L82 60 Z" fill="none" stroke="#0e1116" stroke-width="3"/></svg>
       </a>
       <a class="col-card col-america" href="#catalog" data-filter="spangle">
@@ -638,72 +632,81 @@
       </a>
       <a class="col-card col-fair" href="#catalog" data-filter="fair">
         <div>
-          <h3>County Fair</h3>
-          <p>Ferris wheels, funnel cakes, and four seasons of small-town fairgrounds charm.</p>
+          <h3>Vintage Americana</h3>
+          <p>The county fair in every season, covered bridges, and country roads. Small-town nostalgia in fine detail.</p>
         </div>
-        <span class="count">4 titles</span>
+        <span class="count">6 titles</span>
         <svg class="col-art" width="220" height="160" viewBox="0 0 220 160"><circle cx="60" cy="80" r="46" fill="none" stroke="#fff5d6" stroke-width="3"/><path d="M60 34 V126 M18 80 H102 M31 47 L89 113 M89 47 L31 113" stroke="#fff5d6" stroke-width="2.5"/><path d="M140 130 L146 60 L154 60 L160 130 Z" fill="none" stroke="#fff5d6" stroke-width="3"/><path d="M110 100 Q150 84 190 96" fill="none" stroke="#fff5d6" stroke-width="3"/></svg>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ========== AMERICA 250 ========== -->
-<section id="america" class="feature">
+<!-- ========== VINTAGE AMERICANA ========== -->
+<section id="vintage" class="feature">
   <div class="wrap feature-grid">
     <div>
-      <span class="feature-stamp">Limited collection · 1776 to 2026</span>
-      <h2>America 250.</h2>
-      <p>Five books built for the United States semiquincentennial, celebrating 250 years through patriotic animal art that ranges from festive and fun to historically inspired to irresistibly kawaii.</p>
+      <span class="feature-stamp">Featured collection · Small-town America</span>
+      <h2>Vintage Americana.</h2>
+      <p>Nostalgic scenes of small-town America: the county fair in every season, covered bridges dressed for the holidays, and the country roads in between.</p>
       <div style="margin-top: 24px;">
-        <a href="#catalog" class="btn solid" data-filter="spangle">See all five titles
+        <a href="#catalog" class="btn solid" data-filter="fair">See all six titles
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
     <div class="feature-covers">
-      <a class="cover k-blue square" href="https://www.amazon.com/dp/1970516518" target="_blank" rel="noopener">
-        <img class="cover-img" src="covers/1970516518.jpg" alt="Kawaii Critters: Cozy Americana cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
-        <div class="ribbon">America 250</div>
+      <a class="cover k-coral" href="https://www.amazon.com/dp/197051633X" target="_blank" rel="noopener">
+        <img class="cover-img" src="covers/197051633X.jpg" alt="County Fair cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+        <div class="ribbon">Vintage Americana</div>
         <div class="title-block">
-          <svg class="art" viewBox="0 0 100 100"><circle cx="36" cy="56" r="22" fill="none" stroke="#fff5d6" stroke-width="3"/><circle cx="66" cy="50" r="24" fill="none" stroke="#fff5d6" stroke-width="3"/><circle cx="32" cy="50" r="2.5" fill="#fff5d6"/><circle cx="62" cy="44" r="2.5" fill="#fff5d6"/></svg>
-          <div class="t">Kawaii Critters: Cozy Americana</div>
+          <svg class="art" viewBox="0 0 100 100"><circle cx="50" cy="46" r="30" fill="none" stroke="currentColor" stroke-width="3"/><path d="M50 16 V76 M20 46 H80 M29 25 L71 67 M71 25 L29 67" stroke="currentColor" stroke-width="2"/><path d="M50 76 L38 92 M50 76 L62 92" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="t">County Fair</div>
         </div>
         <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
       </a>
-      <a class="cover k-cream square" href="https://www.amazon.com/dp/B0GQZ5RDX5" target="_blank" rel="noopener">
-        <img class="cover-img" src="covers/B0GQZ5RDX5.jpg" alt="Red, White and Kawaii Critters cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
-        <div class="ribbon" style="background: var(--c-blue); color: var(--c-cream);">America 250</div>
+      <a class="cover k-mint" href="https://www.amazon.com/dp/1970516356" target="_blank" rel="noopener">
+        <img class="cover-img" src="covers/1970516356.jpg" alt="Spring at the County Fair cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+        <div class="ribbon">Vintage Americana</div>
         <div class="title-block">
-          <svg class="art" viewBox="0 0 100 100"><circle cx="35" cy="58" r="22" fill="none" stroke="#0e1116" stroke-width="3"/><circle cx="65" cy="52" r="24" fill="none" stroke="#0e1116" stroke-width="3"/><circle cx="32" cy="52" r="2.5" fill="#0e1116"/><circle cx="62" cy="46" r="2.5" fill="#0e1116"/><path d="M28 64 q3 3 7 0 M58 58 q3 3 7 0" fill="none" stroke="#0e1116" stroke-width="2"/></svg>
-          <div class="t">Red, White &amp; Kawaii Critters</div>
+          <svg class="art" viewBox="0 0 100 100"><circle cx="50" cy="46" r="30" fill="none" stroke="currentColor" stroke-width="3"/><path d="M50 16 V76 M20 46 H80 M29 25 L71 67 M71 25 L29 67" stroke="currentColor" stroke-width="2"/><path d="M50 76 L38 92 M50 76 L62 92" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="t">Spring at the County Fair</div>
         </div>
         <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
       </a>
-      <a class="cover k-red square" href="https://www.amazon.com/dp/B0GR9J6FHV" target="_blank" rel="noopener">
-        <img class="cover-img" src="covers/B0GR9J6FHV.jpg" alt="Star-Spangled Critters cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
-        <div class="ribbon">America 250</div>
+      <a class="cover k-mustard" href="https://www.amazon.com/dp/1970516348" target="_blank" rel="noopener">
+        <img class="cover-img" src="covers/1970516348.jpg" alt="Autumn at the County Fair cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+        <div class="ribbon">Vintage Americana</div>
         <div class="title-block">
-          <svg class="art" viewBox="0 0 100 100"><circle cx="50" cy="50" r="32" fill="none" stroke="#fff5d6" stroke-width="3"/><path d="M50 22 L56 42 L76 42 L60 54 L66 74 L50 62 L34 74 L40 54 L24 42 L44 42 Z" fill="none" stroke="#fff5d6" stroke-width="3"/></svg>
-          <div class="t">Star-Spangled Critters</div>
+          <svg class="art" viewBox="0 0 100 100"><circle cx="50" cy="46" r="30" fill="none" stroke="currentColor" stroke-width="3"/><path d="M50 16 V76 M20 46 H80 M29 25 L71 67 M71 25 L29 67" stroke="currentColor" stroke-width="2"/><path d="M50 76 L38 92 M50 76 L62 92" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="t">Autumn at the County Fair</div>
         </div>
         <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
       </a>
-      <a class="cover k-red square" href="https://www.amazon.com/dp/B0GR9NNKD2" target="_blank" rel="noopener">
-        <img class="cover-img" src="covers/B0GR9NNKD2.jpg" alt="Critters Make History cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
-        <div class="ribbon">America 250</div>
+      <a class="cover k-blue" href="https://www.amazon.com/dp/1970516364" target="_blank" rel="noopener">
+        <img class="cover-img" src="covers/1970516364.jpg" alt="Winter at the County Fair cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+        <div class="ribbon">Vintage Americana</div>
         <div class="title-block">
-          <svg class="art" viewBox="0 0 100 100"><rect x="20" y="30" width="60" height="40" fill="none" stroke="#fff5d6" stroke-width="3"/><path d="M20 40 H80 M20 50 H80 M20 60 H80" stroke="#fff5d6" stroke-width="3"/><rect x="20" y="30" width="22" height="22" fill="#fff5d6"/></svg>
-          <div class="t">Critters Make History</div>
+          <svg class="art" viewBox="0 0 100 100"><circle cx="50" cy="46" r="30" fill="none" stroke="currentColor" stroke-width="3"/><path d="M50 16 V76 M20 46 H80 M29 25 L71 67 M71 25 L29 67" stroke="currentColor" stroke-width="2"/><path d="M50 76 L38 92 M50 76 L62 92" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="t">Winter at the County Fair</div>
         </div>
         <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
       </a>
-      <a class="cover k-mustard" href="https://www.amazon.com/dp/1970516283" target="_blank" rel="noopener">
-        <img class="cover-img" src="covers/1970516283.jpg" alt="Red, White and Bloom cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
-        <div class="ribbon">America 250</div>
+      <a class="cover k-red" href="https://www.amazon.com/dp/1970516437" target="_blank" rel="noopener">
+        <img class="cover-img" src="covers/1970516437.jpg" alt="Covered Bridges for the Holidays cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+        <div class="ribbon">Vintage Americana</div>
         <div class="title-block">
-          <svg class="art" viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" fill="none" stroke="#0e1116" stroke-width="3"/><ellipse cx="50" cy="22" rx="8" ry="14" fill="none" stroke="#0e1116" stroke-width="3"/><ellipse cx="50" cy="78" rx="8" ry="14" fill="none" stroke="#0e1116" stroke-width="3"/><ellipse cx="22" cy="50" rx="14" ry="8" fill="none" stroke="#0e1116" stroke-width="3"/><ellipse cx="78" cy="50" rx="14" ry="8" fill="none" stroke="#0e1116" stroke-width="3"/></svg>
-          <div class="t">Red, White &amp; Bloom</div>
+          <svg class="art" viewBox="0 0 100 100"><path d="M50 12 V88 M22 24 L78 76 M22 76 L78 24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+          <div class="t">Covered Bridges for the Holidays</div>
+        </div>
+        <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
+      </a>
+      <a class="cover k-mustard" href="https://www.amazon.com/dp/B0GQS27JTN" target="_blank" rel="noopener">
+        <img class="cover-img" src="covers/B0GQS27JTN.jpg" alt="Country Roads cover" loading="lazy" onload="this.parentElement.classList.add('has-img')" onerror="this.remove()">
+        <div class="ribbon">Vintage Americana</div>
+        <div class="title-block">
+          <svg class="art" viewBox="0 0 100 100"><path d="M40 90 L42 30 L58 30 L60 90 Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M50 36 V44 M50 50 V58 M50 64 V72" stroke="currentColor" stroke-width="3"/></svg>
+          <div class="t">Country Roads</div>
         </div>
         <div class="imprint"><span>Dropthorn</span><span>$9.99</span></div>
       </a>
@@ -727,12 +730,12 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e1116" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
         <input type="text" id="searchBox" placeholder="Search titles, themes, ISBNs..." aria-label="Search books">
       </label>
-      <button class="chip active" data-cat="all">All 27</button>
+      <button class="chip active" data-cat="all">All 29</button>
       <button class="chip" data-cat="scenic">Scenic Routes</button>
       <button class="chip" data-cat="critter">Critters</button>
       <button class="chip" data-cat="holiday">Holiday</button>
       <button class="chip" data-cat="spangle">America 250</button>
-      <button class="chip" data-cat="fair">County Fair</button>
+      <button class="chip" data-cat="fair">Vintage Americana</button>
     </div>
 
     <div class="grid" id="bookGrid"></div>
@@ -853,7 +856,7 @@
       <h5>Browse</h5>
       <ul>
         <li><a href="#collections">All collections</a></li>
-        <li><a href="#america">America 250</a></li>
+        <li><a href="#vintage">Vintage Americana</a></li>
         <li><a href="#catalog">Full catalog</a></li>
       </ul>
     </div>
@@ -900,7 +903,7 @@
     { t: "Valentine Friends",                             d: "2026-01-18", p: 55,  pr: 6.99,  cat: "holiday", theme: "k-coral",   isbn: "9781970516135", url: "https://www.amazon.com/dp/1970516135", art: "heart" },
     { t: "Critter Games",                                 d: "2026-01-20", p: 53,  pr: 6.99,  cat: "critter", theme: "k-pink",    isbn: "9781970516166", url: "https://www.amazon.com/dp/197051616X", art: "critter" },
     { t: "More Critter Games",                            d: "2026-01-27", p: 55,  pr: 6.99,  cat: "critter", theme: "k-mustard", isbn: "9781970516258", url: "https://www.amazon.com/dp/1970516259", art: "critter" },
-    { t: "Country Roads",                                 d: "2026-02-25", p: 85,  pr: 9.99,  cat: "scenic",  theme: "k-mustard", isbn: "9798249762278", url: "https://www.amazon.com/dp/B0GQS27JTN", art: "road" },
+    { t: "Country Roads",                                 d: "2026-02-25", p: 85,  pr: 9.99,  cat: "fair",    theme: "k-mustard", isbn: "9798249762278", url: "https://www.amazon.com/dp/B0GQS27JTN", art: "road" },
     { t: "Red, White & Bloom",                            d: "2026-02-27", p: 83,  pr: 9.99,  cat: "spangle", theme: "k-red",     isbn: "9781970516289", url: "https://www.amazon.com/dp/1970516283", art: "bloom" },
     { t: "Red, White & Kawaii Critters",                  d: "2026-03-01", p: 55,  pr: 9.99,  cat: "spangle", theme: "k-cream",   isbn: "9798250272377", url: "https://www.amazon.com/dp/B0GQZ5RDX5", art: "critter" },
     { t: "Critters Make History",                         d: "2026-03-03", p: 57,  pr: 9.99,  cat: "spangle", theme: "k-blue",    isbn: "9798250541350", url: "https://www.amazon.com/dp/B0GR9NNKD2", art: "scroll" },
@@ -910,7 +913,7 @@
     { t: "Autumn at the County Fair",  d: "2026-08-11", p: 83, pr: 9.99, cat: "fair", theme: "k-mustard", isbn: "9781970516340", url: "https://www.amazon.com/dp/1970516348", art: "ferris" },
     { t: "Spring at the County Fair",  d: "2026-08-11", p: 83, pr: 9.99, cat: "fair", theme: "k-mint",    isbn: "9781970516357", url: "https://www.amazon.com/dp/1970516356", art: "ferris" },
     { t: "Winter at the County Fair",  d: "2026-08-11", p: 83, pr: 9.99, cat: "fair", theme: "k-blue",    isbn: "9781970516364", url: "https://www.amazon.com/dp/1970516364", art: "ferris" },
-    { t: "Covered Bridges for the Holidays: A Vintage Americana Coloring Book", d: "2026-10-18", p: 85, pr: 9.99, cat: "holiday", theme: "k-red", isbn: "9781970516432", url: "https://www.amazon.com/dp/1970516437", art: "snow" },
+    { t: "Covered Bridges for the Holidays: A Vintage Americana Coloring Book", d: "2026-10-18", p: 85, pr: 9.99, cat: "fair", theme: "k-red", isbn: "9781970516432", url: "https://www.amazon.com/dp/1970516437", art: "snow" },
     { t: "Home Sweet Home Coloring Book: From Front Porch to Fireside", d: "2026-09-26", p: 85, pr: 9.99, cat: "scenic", theme: "k-mint", isbn: "9781970516418", url: "https://www.amazon.com/dp/1970516410", art: "road" }
   ];
 
@@ -933,7 +936,7 @@
   };
 
   const CAT_LABEL = {
-    scenic: "Scenic Routes", critter: "Critters", holiday: "Holiday", spangle: "America 250", fair: "County Fair"
+    scenic: "Scenic Routes", critter: "Critters", holiday: "Holiday", spangle: "America 250", fair: "Vintage Americana"
   };
 
   const grid = document.getElementById("bookGrid");
